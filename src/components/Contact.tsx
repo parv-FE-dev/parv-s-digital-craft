@@ -1,0 +1,108 @@
+import { Button } from "@/components/ui/button";
+import { Mail, MapPin, Linkedin, Github, FileText } from "lucide-react";
+
+const Contact = () => {
+  const contactLinks = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "parv.saxena@email.com",
+      href: "mailto:parv.saxena@email.com"
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Bengaluru, India",
+      href: "#"
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/parvsaxena"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      href: "https://github.com/parvsaxena"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-24 md:py-32 relative">
+      <div className="container px-6 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Section header */}
+          <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+            Contact
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Let's work <span className="text-gradient">together</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            I'm currently open to new opportunities and collaborations. Whether you have a 
+            project in mind or just want to connect, I'd love to hear from you.
+          </p>
+
+          {/* CTA Button */}
+          <div className="mb-16">
+            <Button variant="hero" size="xl" asChild>
+              <a href="mailto:parv.saxena@email.com">
+                <Mail className="mr-2 h-5 w-5" />
+                Say Hello
+              </a>
+            </Button>
+          </div>
+
+          {/* Contact info grid */}
+          <div className="grid sm:grid-cols-2 gap-6 mb-12">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="flex items-center gap-4 p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow group"
+              >
+                <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <link.icon className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <div className="text-sm text-muted-foreground">{link.label}</div>
+                  <div className="font-medium">{link.value}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Social links */}
+          <div className="flex items-center justify-center gap-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+                aria-label={link.label}
+              >
+                <link.icon className="w-6 h-6" />
+              </a>
+            ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+              aria-label="Download Resume"
+            >
+              <FileText className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;

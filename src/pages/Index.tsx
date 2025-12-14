@@ -1,13 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>Parv Saxena | Front-End Developer</title>
+        <meta 
+          name="description" 
+          content="Front-End Developer specializing in React, TypeScript, and modern web technologies. 4+ years of experience building high-performance web applications." 
+        />
+        <meta name="keywords" content="Front-End Developer, React Developer, TypeScript, Web Developer, Bengaluru, India" />
+        <meta property="og:title" content="Parv Saxena | Front-End Developer" />
+        <meta property="og:description" content="Building intuitive, high-performance web experiences with React & TypeScript." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://parvsaxena.dev" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
