@@ -1,100 +1,217 @@
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowDown, FileText, Mail } from "lucide-react";
+import { ArrowRight, ChevronDown, Calendar, Layers, Star, Zap } from "lucide-react";
 
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      </div>
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-      {/* Grid pattern overlay */}
+  const codeLines = [
+    'const developer = new FrontendCraftsman();',
+    'developer.expertise = ["React", "TypeScript", "Next.js"];',
+    'developer.passion = "Building Exceptional UX";',
+    'developer.mission = "Performance + Elegance";'
+  ];
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+
+    const currentLine = codeLines[currentLineIndex];
+    const typingSpeed = isDeleting ? 30 : 80;
+
+    if (!isDeleting && displayedText === currentLine) {
+      const pauseTimer = setTimeout(() => setIsDeleting(true), 2000);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    if (isDeleting && displayedText === '') {
+      setIsDeleting(false);
+      setCurrentLineIndex((prev) => (prev + 1) % codeLines.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setDisplayedText(
+        isDeleting
+          ? currentLine.substring(0, displayedText.length - 1)
+          : currentLine.substring(0, displayedText.length + 1)
+      );
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentLineIndex, isHydrated]);
+
+  const skills = [
+    { name: 'React', level: 95, color: 'bg-blue-500' },
+    { name: 'TypeScript', level: 90, color: 'bg-blue-600' },
+    { name: 'Next.js', level: 88, color: 'bg-slate-600' },
+    { name: 'Performance', level: 92, color: 'bg-emerald-500' }
+  ];
+
+  const metrics = [
+    { value: '4+', label: 'Years Experience', Icon: Calendar },
+    { value: '50+', label: 'Projects Delivered', Icon: Layers },
+    { value: '99%', label: 'Client Satisfaction', Icon: Star },
+    { value: '<2s', label: 'Avg Load Time', Icon: Zap }
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+      {/* Grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />
+      
+      {/* Animated blobs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
 
-      <div className="container relative z-10 px-6 md:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="opacity-0 animate-fade-up">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Available for opportunities
-            </span>
-          </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left content */}
+          <div className="space-y-8">
+            {/* Status badge */}
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-slate-200">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+              <span className="text-sm font-mono text-slate-700">Available for opportunities</span>
+            </div>
 
-          {/* Main heading */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 opacity-0 animate-fade-up stagger-1">
-            Front-End Developer
-            <br />
-            <span className="text-gradient">React & TypeScript</span>
-          </h1>
+            {/* Headlines */}
+            <div className="space-y-4">
+              <h1 className="text-5xl lg:text-7xl font-display font-bold text-slate-900 leading-tight">
+                Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Parv</span>
+              </h1>
+              <h2 className="text-2xl lg:text-3xl font-body text-slate-700">
+                Front-End Craftsman & Performance Architect
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+                Transforming complex requirements into elegant, high-performance web experiences. 
+                Specializing in React, TypeScript, and modern front-end architecture with a passion 
+                for pixel-perfect implementations and sub-second load times.
+              </p>
+            </div>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 opacity-0 animate-fade-up stagger-2">
-            Building intuitive, high-performance web experiences with 4+ years of crafting 
-            pixel-perfect interfaces and scalable front-end architectures.
-          </p>
+            {/* CTA buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Button asChild className="group px-8 py-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <a href="#projects" className="flex items-center space-x-2">
+                  <span>View My Work</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </Button>
+              <Button variant="outline" asChild className="px-8 py-6 bg-white text-slate-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-slate-200">
+                <a href="#contact">Get in Touch</a>
+              </Button>
+            </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up stagger-3">
-            <Button variant="hero" size="lg" asChild>
-              <a href="#projects">
-                View My Work
-                <ArrowDown className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <a href="#contact">
-                <Mail className="mr-1 h-4 w-4" />
-                Get in Touch
-              </a>
-            </Button>
-            <Button variant="ghost" size="lg" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-1 h-4 w-4" />
-                Resume
-              </a>
-            </Button>
-          </div>
-
-          {/* Tech stack preview */}
-          <div className="mt-16 opacity-0 animate-fade-up stagger-4">
-            <p className="text-sm text-muted-foreground mb-4">Tech I work with</p>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground/60">
-              {['React', 'TypeScript', 'Tailwind', 'Next.js', 'Redux'].map((tech, index) => (
-                <span 
-                  key={tech}
-                  className="text-sm font-medium hover:text-primary transition-colors cursor-default"
-                  style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                >
-                  {tech}
-                </span>
+            {/* Metrics grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8">
+              {metrics.map((metric, index) => (
+                <div key={index} className="text-center p-4 bg-white/60 backdrop-blur-sm rounded-lg border border-slate-200">
+                  <metric.Icon className="w-6 h-6 mx-auto mb-2 text-blue-600" />
+                  <div className="text-2xl font-bold text-slate-900">{metric.value}</div>
+                  <div className="text-xs text-slate-600 mt-1">{metric.label}</div>
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up stagger-5">
-        <a 
-          href="#about" 
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-        >
-          <span className="text-xs">Scroll</span>
-          <div className="w-5 h-8 rounded-full border-2 border-current flex justify-center pt-1">
-            <div className="w-1 h-2 rounded-full bg-current animate-bounce" />
+          {/* Right - Code editor */}
+          <div className="relative">
+            <div className="bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
+              {/* Editor header */}
+              <div className="flex items-center space-x-2 px-4 py-3 bg-slate-800 border-b border-slate-700">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                </div>
+                <div className="flex-1 text-center">
+                  <span className="text-xs font-mono text-slate-400">developer.ts</span>
+                </div>
+              </div>
+
+              {/* Editor content */}
+              <div className="p-6 font-mono text-sm space-y-3">
+                <div className="flex items-start space-x-3">
+                  <span className="text-slate-500 select-none">1</span>
+                  <div className="flex-1">
+                    <span className="text-purple-400">import</span>
+                    <span className="text-slate-300"> &#123; </span>
+                    <span className="text-blue-400">Excellence</span>
+                    <span className="text-slate-300"> &#125; </span>
+                    <span className="text-purple-400">from</span>
+                    <span className="text-emerald-400"> 'passion'</span>
+                    <span className="text-slate-300">;</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <span className="text-slate-500 select-none">2</span>
+                  <div className="flex-1 text-slate-500">// Live coding demonstration</div>
+                </div>
+
+                <div className="flex items-start space-x-3 min-h-[24px]">
+                  <span className="text-slate-500 select-none">3</span>
+                  <div className="flex-1">
+                    {isHydrated ? (
+                      <>
+                        <span className="text-slate-300">{displayedText}</span>
+                        <span className="inline-block w-2 h-5 bg-blue-500 ml-1 animate-pulse" />
+                      </>
+                    ) : (
+                      <span className="text-slate-300">{codeLines[0]}</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Skills progress bars */}
+                <div className="pt-6 space-y-3">
+                  <div className="text-slate-500 text-xs mb-2">// Core Competencies</div>
+                  {skills.map((skill, index) => (
+                    <div key={index} className="space-y-1">
+                      <div className="flex justify-between text-xs">
+                        <span className="text-slate-400">{skill.name}</span>
+                        <span className="text-slate-500">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full ${skill.color} rounded-full transition-all duration-1000 ease-out`}
+                          style={{ width: isHydrated ? `${skill.level}%` : '0%' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative blur */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl opacity-20 blur-2xl" />
           </div>
-        </a>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="mt-20 text-center">
+          <a
+            href="#about"
+            className="inline-flex flex-col items-center space-y-2 text-slate-600 hover:text-slate-900 transition-colors duration-300 group"
+          >
+            <span className="text-sm font-medium">Explore My Journey</span>
+            <ChevronDown className="w-6 h-6 animate-bounce group-hover:text-blue-600 transition-colors duration-300" />
+          </a>
+        </div>
       </div>
     </section>
   );
