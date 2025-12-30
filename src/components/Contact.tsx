@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Linkedin, Github, FileText } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const contactLinks = [
     {
       icon: Mail,
@@ -31,8 +34,12 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
-      <div className="container px-6 md:px-8">
+    <section 
+      id="contact" 
+      className="py-24 md:py-32 relative"
+      ref={ref as React.RefObject<HTMLElement>}
+    >
+      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
           {/* Section header */}
           <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -59,11 +66,12 @@ const Contact = () => {
 
           {/* Contact info grid */}
           <div className="grid sm:grid-cols-2 gap-6 mb-12">
-            {contactLinks.map((link) => (
+            {contactLinks.map((link, index) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="flex items-center gap-4 p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow group"
+                className={`flex items-center gap-4 p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
               >
                 <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   <link.icon className="w-6 h-6" />
@@ -80,13 +88,14 @@ const Contact = () => {
 
           {/* Social links */}
           <div className="flex items-center justify-center gap-4">
-            {socialLinks.map((link) => (
+            {socialLinks.map((link, index) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+                className={`p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                style={{ transitionDelay: `${(index + 3) * 100}ms` }}
                 aria-label={link.label}
               >
                 <link.icon className="w-6 h-6" />
@@ -96,7 +105,8 @@ const Contact = () => {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+              className={`p-4 rounded-full bg-secondary/50 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+              style={{ transitionDelay: '500ms' }}
               aria-label="Download Resume"
             >
               <FileText className="w-6 h-6" />

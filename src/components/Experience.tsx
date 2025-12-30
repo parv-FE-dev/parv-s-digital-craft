@@ -1,7 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const experiences = [
     {
       company: "Lifesight",
@@ -47,8 +50,12 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 md:py-32 bg-secondary/20 relative">
-      <div className="container px-6 md:px-8">
+    <section 
+      id="experience" 
+      className="py-24 md:py-32 bg-secondary/20 relative"
+      ref={ref as React.RefObject<HTMLElement>}
+    >
+      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
           <div className="mb-16 text-center">
@@ -68,7 +75,8 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <div 
                 key={exp.company}
-                className={`relative mb-12 last:mb-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:ml-auto'} md:w-1/2`}
+                className={`relative mb-12 last:mb-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:ml-auto'} md:w-1/2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
                 {/* Timeline dot */}
                 <div className={`absolute top-0 ${index % 2 === 0 ? 'left-0 md:left-auto md:right-0 md:translate-x-1/2' : 'left-0 md:-translate-x-1/2'} w-4 h-4 rounded-full bg-primary border-4 border-background z-10`} />
