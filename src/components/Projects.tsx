@@ -142,7 +142,7 @@ const Projects = () => {
           {/* View all link */}
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com/parvsaxena" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/parv-FE-dev" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-4 w-4" />
                 View All Projects on GitHub
               </a>
