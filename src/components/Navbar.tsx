@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
     { label: "About", href: "#about" },
@@ -17,9 +18,23 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine active section
+      const sections = navLinks.map(link => link.href.replace("#", ""));
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          return;
+        }
+      }
+      setActiveSection("");
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -67,17 +82,26 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-sm transition-colors relative group ${
+                  isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.label}
+                <span 
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`} 
+                />
+              </a>
+            );
+          })}
           <Button variant="outline" size="sm" asChild>
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
@@ -99,16 +123,21 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border animate-fade-in">
           <div className="container px-6 py-6 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`text-lg font-medium transition-colors py-2 ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             <Button variant="outline" className="w-full mt-2" asChild>
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Resume
