@@ -26,7 +26,7 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/parvsaxena",
+      href: "https://github.com/parv-FE-dev",
     },
   ];
 
