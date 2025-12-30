@@ -1,8 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Folder } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const projects = [
     {
       title: "Marketing Intelligence Dashboard",
@@ -43,8 +46,12 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
-      <div className="container px-6 md:px-8">
+    <section 
+      id="projects" 
+      className="py-24 md:py-32 relative"
+      ref={ref as React.RefObject<HTMLElement>}
+    >
+      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="mb-16 text-center">
@@ -65,7 +72,8 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div 
                 key={project.title}
-                className="group relative rounded-xl overflow-hidden bg-gradient-card border border-border hover:border-primary/30 transition-all duration-500 hover-glow"
+                className={`group relative rounded-xl overflow-hidden bg-gradient-card border border-border hover:border-primary/30 transition-all duration-500 hover-glow ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
               >
                 {/* Project image placeholder */}
                 <div className="relative h-48 bg-secondary/50 overflow-hidden">

@@ -1,4 +1,8 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const Skills = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const skillCategories = [
     {
       title: "Expert",
@@ -38,8 +42,12 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 md:py-32 bg-secondary/20 relative">
-      <div className="container px-6 md:px-8">
+    <section 
+      id="skills" 
+      className="py-24 md:py-32 bg-secondary/20 relative"
+      ref={ref as React.RefObject<HTMLElement>}
+    >
+      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="mb-16 text-center">
@@ -57,10 +65,11 @@ const Skills = () => {
 
           {/* Skills grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {skillCategories.map((category) => (
+            {skillCategories.map((category, index) => (
               <div 
                 key={category.title}
-                className="p-6 rounded-xl bg-gradient-card border border-border"
+                className={`p-6 rounded-xl bg-gradient-card border border-border transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${(index + 1) * 150}ms` }}
               >
                 <h3 className="font-display font-bold text-lg mb-6 text-center">
                   <span className="text-gradient">{category.title}</span>
@@ -75,7 +84,7 @@ const Skills = () => {
                       <div className="h-2 bg-secondary rounded-full overflow-hidden">
                         <div 
                           className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
+                          style={{ width: isVisible ? `${skill.level}%` : '0%', transitionDelay: `${(index + 1) * 150}ms` }}
                         />
                       </div>
                     </div>
@@ -89,10 +98,11 @@ const Skills = () => {
           <div className="text-center">
             <h3 className="font-display font-semibold text-xl mb-6">Tools I Use</h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {tools.map((tool) => (
+              {tools.map((tool, index) => (
                 <span 
                   key={tool}
-                  className="px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors cursor-default"
+                  className={`px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground hover:text-primary hover:border-primary/30 transition-all cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                  style={{ transitionDelay: `${(index + 1) * 50}ms`, transitionDuration: '500ms' }}
                 >
                   {tool}
                 </span>

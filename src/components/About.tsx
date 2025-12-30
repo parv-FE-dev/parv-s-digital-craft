@@ -1,6 +1,9 @@
 import { Code2, Sparkles, Zap } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const About = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const highlights = [
     {
       icon: Code2,
@@ -20,8 +23,12 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32 relative">
-      <div className="container px-6 md:px-8">
+    <section 
+      id="about" 
+      className="py-24 md:py-32 relative"
+      ref={ref as React.RefObject<HTMLElement>}
+    >
+      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="mb-16">
@@ -77,7 +84,8 @@ const About = () => {
               {highlights.map((item, index) => (
                 <div 
                   key={item.title}
-                  className="group p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow"
+                  className={`group p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+                  style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
