@@ -8,9 +8,6 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Parv Saxena. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="w-4 h-4 text-primary" /> using React & Tailwind
-          </p>
         </div>
       </div>
     </footer>

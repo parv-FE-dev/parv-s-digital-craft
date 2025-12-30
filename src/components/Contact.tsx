@@ -6,28 +6,28 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "parv.saxena@email.com",
-      href: "mailto:parv.saxena@email.com"
+      value: "parvsaxena94@gmail.com",
+      href: "mailto:parvsaxena94@gmail.com",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Bengaluru, India",
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   const socialLinks = [
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/parvsaxena"
+      href: "https://linkedin.com/in/parvsaxena-fe",
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/parvsaxena"
-    }
+      href: "https://github.com/parvsaxena",
+    },
   ];
 
   return (
@@ -42,14 +42,15 @@ const Contact = () => {
             Let's work <span className="text-gradient">together</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            I'm currently open to new opportunities and collaborations. Whether you have a 
-            project in mind or just want to connect, I'd love to hear from you.
+            I'm currently open to new opportunities and collaborations. Whether
+            you have a project in mind or just want to connect, I'd love to hear
+            from you.
           </p>
 
           {/* CTA Button */}
           <div className="mb-16">
             <Button variant="hero" size="xl" asChild>
-              <a href="mailto:parv.saxena@email.com">
+              <a href="mailto:parvsaxena94@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Say Hello
               </a>
@@ -68,7 +69,9 @@ const Contact = () => {
                   <link.icon className="w-6 h-6" />
                 </div>
                 <div className="text-left">
-                  <div className="text-sm text-muted-foreground">{link.label}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {link.label}
+                  </div>
                   <div className="font-medium">{link.value}</div>
                 </div>
               </a>
