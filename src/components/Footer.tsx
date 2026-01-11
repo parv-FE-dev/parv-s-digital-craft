@@ -1,12 +1,16 @@
-import { Heart } from "lucide-react";
-
 const Footer = () => {
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-6 border-t border-border bg-vscode-sidebar">
       <div className="container px-6 md:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-sm">
+          <p className="text-muted-foreground">
+            <span className="vscode-comment">// </span>
             © {new Date().getFullYear()} Parv Saxena. All rights reserved.
+          </p>
+          <p className="text-muted-foreground">
+            <span className="vscode-keyword">export default</span>{" "}
+            <span className="vscode-function">Portfolio</span>
+            <span className="text-foreground">;</span>
           </p>
         </div>
       </div>
