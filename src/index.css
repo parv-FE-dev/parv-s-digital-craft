@@ -6,34 +6,34 @@
 
 @layer base {
   :root {
-    /* VS Code Dark+ Theme */
-    --background: 220 13% 12%;
-    --foreground: 220 14% 88%;
+    /* VS Code Dark+ Theme - Exact colors */
+    --background: 0 0% 12%;
+    --foreground: 0 0% 85%;
 
-    --card: 220 13% 15%;
-    --card-foreground: 220 14% 88%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 85%;
 
-    --popover: 220 13% 15%;
-    --popover-foreground: 220 14% 88%;
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 85%;
 
-    --primary: 207 90% 61%;
-    --primary-foreground: 220 13% 12%;
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 220 14% 88%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 220 13% 22%;
-    --muted-foreground: 220 14% 55%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 207 90% 61%;
-    --accent-foreground: 220 13% 12%;
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 220 14% 88%;
+    --destructive-foreground: 0 0% 85%;
 
-    --border: 220 13% 22%;
-    --input: 220 13% 22%;
-    --ring: 207 90% 61%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 207 90% 54%;
 
     --radius: 0.25rem;
 
@@ -42,20 +42,20 @@
     --vscode-string: 95 85% 57%;
     --vscode-function: 54 100% 67%;
     --vscode-variable: 207 90% 61%;
-    --vscode-comment: 220 14% 45%;
+    --vscode-comment: 0 0% 42%;
     --vscode-number: 28 100% 65%;
     --vscode-type: 174 70% 55%;
 
-    /* VS Code UI colors */
-    --vscode-activitybar: 220 13% 10%;
-    --vscode-sidebar: 220 13% 14%;
-    --vscode-editor: 220 13% 12%;
-    --vscode-statusbar: 218 80% 45%;
-    --vscode-tab-active: 220 13% 12%;
-    --vscode-tab-inactive: 220 13% 18%;
-    --vscode-tab-border: 220 13% 22%;
-    --vscode-line-number: 220 14% 35%;
-    --vscode-selection: 207 90% 61% / 0.3;
+    /* VS Code UI colors - exact hex conversions */
+    --vscode-activitybar: 0 0% 20%;
+    --vscode-sidebar: 0 0% 15%;
+    --vscode-editor: 0 0% 12%;
+    --vscode-statusbar: 207 80% 48%;
+    --vscode-tab-active: 0 0% 12%;
+    --vscode-tab-inactive: 0 0% 17%;
+    --vscode-tab-border: 0 0% 20%;
+    --vscode-line-number: 0 0% 35%;
+    --vscode-selection: 207 90% 54% / 0.3;
 
     /* Custom tokens */
     --gradient-primary: linear-gradient(135deg, hsl(207 90% 61%), hsl(174 70% 55%));
