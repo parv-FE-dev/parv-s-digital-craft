@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,46 +6,68 @@
 
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* VS Code Dark+ Theme */
+    --background: 220 13% 12%;
+    --foreground: 220 14% 88%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 13% 15%;
+    --card-foreground: 220 14% 88%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 13% 15%;
+    --popover-foreground: 220 14% 88%;
 
-    --primary: 187 94% 43%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 207 90% 61%;
+    --primary-foreground: 220 13% 12%;
 
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 220 14% 88%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 220 13% 22%;
+    --muted-foreground: 220 14% 55%;
 
-    --accent: 187 94% 43%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 207 90% 61%;
+    --accent-foreground: 220 13% 12%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 14% 88%;
 
-    --border: 222 47% 18%;
-    --input: 222 47% 18%;
-    --ring: 187 94% 43%;
+    --border: 220 13% 22%;
+    --input: 220 13% 22%;
+    --ring: 207 90% 61%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
+
+    /* VS Code syntax colors */
+    --vscode-keyword: 300 100% 72%;
+    --vscode-string: 95 85% 57%;
+    --vscode-function: 54 100% 67%;
+    --vscode-variable: 207 90% 61%;
+    --vscode-comment: 220 14% 45%;
+    --vscode-number: 28 100% 65%;
+    --vscode-type: 174 70% 55%;
+
+    /* VS Code UI colors */
+    --vscode-activitybar: 220 13% 10%;
+    --vscode-sidebar: 220 13% 14%;
+    --vscode-editor: 220 13% 12%;
+    --vscode-statusbar: 218 80% 45%;
+    --vscode-tab-active: 220 13% 12%;
+    --vscode-tab-inactive: 220 13% 18%;
+    --vscode-tab-border: 220 13% 22%;
+    --vscode-line-number: 220 14% 35%;
+    --vscode-selection: 207 90% 61% / 0.3;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(187 94% 43%), hsl(200 90% 50%));
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 4%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%), hsl(222 47% 7%));
-    --glow-primary: 0 0 60px hsl(187 94% 43% / 0.3);
-    --glow-subtle: 0 0 40px hsl(187 94% 43% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(207 90% 61%), hsl(174 70% 55%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 13% 12%) 0%, hsl(220 13% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 13% 15%), hsl(220 13% 12%));
+    --glow-primary: 0 0 40px hsl(207 90% 61% / 0.2);
+    --glow-subtle: 0 0 20px hsl(207 90% 61% / 0.1);
     
     /* Typography */
-    --font-display: 'Syne', sans-serif;
+    --font-display: 'JetBrains Mono', monospace;
     --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 }
 
@@ -59,12 +81,16 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
   }
 }
 
@@ -75,6 +101,10 @@
 
   .font-body {
     font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
   .text-gradient {
@@ -97,6 +127,22 @@
   .glow-subtle {
     box-shadow: var(--glow-subtle);
   }
+
+  /* VS Code specific utilities */
+  .vscode-keyword { color: hsl(var(--vscode-keyword)); }
+  .vscode-string { color: hsl(var(--vscode-string)); }
+  .vscode-function { color: hsl(var(--vscode-function)); }
+  .vscode-variable { color: hsl(var(--vscode-variable)); }
+  .vscode-comment { color: hsl(var(--vscode-comment)); }
+  .vscode-number { color: hsl(var(--vscode-number)); }
+  .vscode-type { color: hsl(var(--vscode-type)); }
+
+  .bg-vscode-activitybar { background: hsl(var(--vscode-activitybar)); }
+  .bg-vscode-sidebar { background: hsl(var(--vscode-sidebar)); }
+  .bg-vscode-editor { background: hsl(var(--vscode-editor)); }
+  .bg-vscode-statusbar { background: hsl(var(--vscode-statusbar)); }
+  .bg-vscode-tab-active { background: hsl(var(--vscode-tab-active)); }
+  .bg-vscode-tab-inactive { background: hsl(var(--vscode-tab-inactive)); }
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -158,6 +204,15 @@
   50% { box-shadow: var(--glow-primary); }
 }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
 .hover-glow {
   transition: box-shadow 0.3s ease;
 }
@@ -166,9 +221,10 @@
   box-shadow: var(--glow-primary);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - VS Code style */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -177,15 +233,15 @@
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--muted));
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.5);
+  background: hsl(var(--muted-foreground));
 }
 
-/* Selection */
+/* Selection - VS Code style */
 ::selection {
-  background: hsl(var(--primary) / 0.3);
+  background: hsl(var(--vscode-selection));
   color: hsl(var(--foreground));
 }

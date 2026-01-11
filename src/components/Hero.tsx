@@ -62,66 +62,71 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Grid pattern */}
+    <section className="relative min-h-[calc(100vh-60px)] flex items-center justify-center overflow-hidden bg-vscode-editor">
+      {/* Grid pattern - VS Code style */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `linear-gradient(hsl(var(--muted-foreground)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--muted-foreground)) 1px, transparent 1px)`,
+          backgroundSize: '20px 20px'
         }}
       />
       
-      {/* Animated blobs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+      {/* Line numbers gutter effect */}
+      <div className="absolute left-0 top-0 bottom-0 w-12 bg-vscode-sidebar border-r border-border opacity-30" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-8">
+          <div className="space-y-6 pl-8">
             {/* Status badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-secondary/80 backdrop-blur-sm rounded-full border border-border">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-secondary rounded border border-border font-mono text-xs">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-sm font-mono text-muted-foreground">Available for opportunities</span>
+              <span className="text-muted-foreground">// Available for opportunities</span>
             </div>
 
-            {/* Headlines */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-display font-bold text-foreground leading-tight">
-                Hi, I'm <span className="text-gradient">Parv</span>
+            {/* Headlines - code style */}
+            <div className="space-y-4 font-mono">
+              <div className="text-muted-foreground text-sm">
+                <span className="vscode-keyword">const</span>{" "}
+                <span className="vscode-variable">developer</span>{" "}
+                <span className="text-foreground">=</span>{" "}
+                <span className="vscode-string">"Parv Saxena"</span>
+                <span className="text-foreground">;</span>
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
+                Hi, I'm <span className="vscode-function">Parv</span>
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-body text-muted-foreground">
-                Front-End Craftsman & Performance Architect
+              <h2 className="text-xl lg:text-2xl text-muted-foreground font-normal">
+                <span className="vscode-comment">// </span>Front-End Craftsman & Performance Architect
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
                 Transforming complex requirements into elegant, high-performance web experiences. 
-                Specializing in React, TypeScript, and modern front-end architecture with a passion 
-                for pixel-perfect implementations and sub-second load times.
+                Specializing in React, TypeScript, and modern front-end architecture.
               </p>
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Button asChild className="group px-8 py-6 rounded-lg glow-subtle hover:glow-primary transition-all duration-300 hover:-translate-y-1">
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="group px-6 py-5 rounded font-mono text-sm bg-primary hover:bg-primary/90">
                 <a href="#projects" className="flex items-center space-x-2">
-                  <span>View My Work</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <span>viewMyWork()</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               </Button>
-              <Button variant="outline" asChild className="px-8 py-6 bg-secondary/50 text-foreground rounded-lg transition-all duration-300 hover:-translate-y-1 border-border hover:border-primary/50 hover:bg-secondary">
-                <a href="#contact">Get in Touch</a>
+              <Button variant="outline" asChild className="px-6 py-5 font-mono text-sm border-border hover:bg-secondary">
+                <a href="#contact">getInTouch()</a>
               </Button>
             </div>
 
             {/* Metrics grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
               {metrics.map((metric, index) => (
-                <div key={index} className="text-center p-4 bg-card/60 backdrop-blur-sm rounded-lg border border-border hover:border-primary/30 transition-colors duration-300">
-                  <metric.Icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-                  <div className="text-2xl font-bold text-foreground">{metric.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{metric.label}</div>
+                <div key={index} className="text-center p-3 bg-card rounded border border-border hover:border-primary/50 transition-colors duration-300">
+                  <metric.Icon className="w-5 h-5 mx-auto mb-1.5 text-primary" />
+                  <div className="text-xl font-bold font-mono text-foreground">{metric.value}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -129,87 +134,84 @@ const Hero = () => {
 
           {/* Right - Code editor */}
           <div className="relative">
-            <div className="bg-card rounded-2xl shadow-2xl overflow-hidden border border-border">
-              {/* Editor header */}
-              <div className="flex items-center space-x-2 px-4 py-3 bg-secondary border-b border-border">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                </div>
-                <div className="flex-1 text-center">
-                  <span className="text-xs font-mono text-muted-foreground">developer.ts</span>
+            <div className="bg-card rounded border border-border overflow-hidden shadow-xl">
+              {/* Editor tab */}
+              <div className="flex items-center bg-vscode-tab-inactive border-b border-border">
+                <div className="flex items-center gap-2 px-4 py-2 bg-vscode-tab-active border-t border-t-primary text-sm font-mono text-foreground">
+                  <span className="text-primary">TS</span>
+                  <span>developer.ts</span>
+                  <span className="text-muted-foreground">×</span>
                 </div>
               </div>
 
-              {/* Editor content */}
-              <div className="p-6 font-mono text-sm space-y-3">
-                <div className="flex items-start space-x-3">
-                  <span className="text-muted-foreground select-none">1</span>
-                  <div className="flex-1">
-                    <span className="text-purple-400">import</span>
-                    <span className="text-foreground/80"> &#123; </span>
-                    <span className="text-primary">Excellence</span>
-                    <span className="text-foreground/80"> &#125; </span>
-                    <span className="text-purple-400">from</span>
-                    <span className="text-emerald-400"> 'passion'</span>
-                    <span className="text-foreground/80">;</span>
+              {/* Editor content with line numbers */}
+              <div className="flex">
+                {/* Line numbers */}
+                <div className="py-4 px-3 text-right font-mono text-sm select-none bg-vscode-sidebar border-r border-border" style={{ color: 'hsl(var(--vscode-line-number))' }}>
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                  <div>4</div>
+                  <div>5</div>
+                  <div>6</div>
+                  <div>7</div>
+                  <div>8</div>
+                  <div>9</div>
+                </div>
+
+                {/* Code content */}
+                <div className="flex-1 p-4 font-mono text-sm space-y-1 overflow-x-auto">
+                  <div>
+                    <span className="vscode-keyword">import</span>
+                    <span className="text-foreground"> {'{'} </span>
+                    <span className="vscode-type">Excellence</span>
+                    <span className="text-foreground"> {'}'} </span>
+                    <span className="vscode-keyword">from</span>
+                    <span className="vscode-string"> 'passion'</span>
+                    <span className="text-foreground">;</span>
                   </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <span className="text-muted-foreground select-none">2</span>
-                  <div className="flex-1 text-muted-foreground">// Live coding demonstration</div>
-                </div>
-
-                <div className="flex items-start space-x-3 min-h-[24px]">
-                  <span className="text-muted-foreground select-none">3</span>
-                  <div className="flex-1">
+                  <div className="vscode-comment">// Live coding demonstration</div>
+                  <div className="min-h-[20px]">
                     {isHydrated ? (
                       <>
-                        <span className="text-foreground/80">{displayedText}</span>
-                        <span className="inline-block w-2 h-5 bg-primary ml-1 animate-pulse" />
+                        <span className="text-foreground">{displayedText}</span>
+                        <span className="inline-block w-[2px] h-[1.1em] bg-foreground ml-0.5 animate-blink align-middle" />
                       </>
                     ) : (
-                      <span className="text-foreground/80">{codeLines[0]}</span>
+                      <span className="text-foreground">{codeLines[0]}</span>
                     )}
                   </div>
-                </div>
-
-                {/* Skills progress bars */}
-                <div className="pt-6 space-y-3">
-                  <div className="text-muted-foreground text-xs mb-2">// Core Competencies</div>
+                  <div className="vscode-comment">// Core Competencies</div>
+                  
+                  {/* Skills as code */}
                   {skills.map((skill, index) => (
-                    <div key={index} className="space-y-1">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-muted-foreground">{skill.name}</span>
-                        <span className="text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div key={index} className="flex items-center gap-2">
+                      <span className="vscode-variable">{skill.name.toLowerCase()}</span>
+                      <span className="text-foreground">:</span>
+                      <div className="flex-1 max-w-[150px] h-2 bg-muted rounded-sm overflow-hidden">
                         <div
-                          className="h-full bg-primary rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-primary transition-all duration-1000 ease-out"
                           style={{ width: isHydrated ? `${skill.level}%` : '0%' }}
                         />
                       </div>
+                      <span className="vscode-number">{skill.level}</span>
+                      <span className="text-foreground">%</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-
-            {/* Decorative blur */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-2xl blur-2xl" />
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
           <a
             href="#about"
-            className="inline-flex flex-col items-center space-y-2 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+            className="inline-flex flex-col items-center space-y-2 text-muted-foreground hover:text-primary transition-colors duration-300 group font-mono text-sm"
           >
-            <span className="text-sm font-medium">Explore My Journey</span>
-            <ChevronDown className="w-6 h-6 animate-bounce group-hover:text-primary transition-colors duration-300" />
+            <span>scrollDown()</span>
+            <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>
         </div>
       </div>
