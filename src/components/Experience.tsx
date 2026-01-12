@@ -130,7 +130,7 @@ const Experience = () => {
                   <div 
                     className={`p-6 rounded-xl bg-gradient-card border transition-all duration-300 cursor-pointer ${
                       expandedId === exp.id 
-                        ? 'border-primary/50 shadow-lg shadow-primary/10' 
+                        ? 'border-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.3),0_0_30px_rgba(var(--primary-rgb),0.1)]' 
                         : 'border-border hover:border-primary/30'
                     }`}
                     onClick={() => toggleExpand(exp.id)}
