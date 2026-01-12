@@ -1,4 +1,43 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { 
+  Atom, FileCode, Code, FileText, Palette, 
+  Layers, GitBranch, Cloud, Plug,
+  Sparkles, Image, Server, Paintbrush, BookOpen,
+  Monitor, PenTool, Terminal, Search, Send,
+  ClipboardList, MessageSquare, StickyNote, Triangle, Container,
+  type LucideIcon
+} from "lucide-react";
+
+const skillIcons: Record<string, LucideIcon> = {
+  "React": Atom,
+  "TypeScript": FileCode,
+  "JavaScript": Code,
+  "HTML/CSS": FileText,
+  "Tailwind CSS": Palette,
+  "Next.js": Layers,
+  "Redux-Saga": Layers,
+  "Git/GitHub": GitBranch,
+  "AWS": Cloud,
+  "REST APIs": Plug,
+  "OpenAI APIs": Sparkles,
+  "Stable Diffusion": Image,
+  "Node.js": Server,
+  "SASS": Paintbrush,
+  "Storybook": BookOpen,
+};
+
+const toolIcons: Record<string, LucideIcon> = {
+  "VS Code": Monitor,
+  "Figma": PenTool,
+  "Git": GitBranch,
+  "Chrome DevTools": Search,
+  "Postman": Send,
+  "Jira": ClipboardList,
+  "Slack": MessageSquare,
+  "Notion": StickyNote,
+  "Vercel": Triangle,
+  "Docker": Container,
+};
 
 const Skills = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -61,15 +100,19 @@ const Skills = () => {
                 </h3>
                 <p className="text-xs text-muted-foreground text-center mb-6">{category.description}</p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span 
-                      key={skill}
-                      className={`px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-sm font-mono text-primary hover:bg-primary/20 hover:border-primary/40 transition-all cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-                      style={{ transitionDelay: `${(index * 150) + (skillIndex * 50)}ms`, transitionDuration: '500ms' }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {category.skills.map((skill, skillIndex) => {
+                    const IconComponent = skillIcons[skill];
+                    return (
+                      <span 
+                        key={skill}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-sm font-mono text-primary hover:bg-primary/20 hover:border-primary/40 transition-all cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                        style={{ transitionDelay: `${(index * 150) + (skillIndex * 50)}ms`, transitionDuration: '500ms' }}
+                      >
+                        {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
+                        {skill}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -79,15 +122,19 @@ const Skills = () => {
           <div className="text-center">
             <h3 className="font-display font-semibold text-xl mb-6">Tools I Use</h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {tools.map((tool, index) => (
-                <span 
-                  key={tool}
-                  className={`px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground hover:text-primary hover:border-primary/30 transition-all cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-                  style={{ transitionDelay: `${(index + 1) * 50}ms`, transitionDuration: '500ms' }}
-                >
-                  {tool}
-                </span>
-              ))}
+              {tools.map((tool, index) => {
+                const IconComponent = toolIcons[tool];
+                return (
+                  <span 
+                    key={tool}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground hover:text-primary hover:border-primary/30 transition-all cursor-default ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                    style={{ transitionDelay: `${(index + 1) * 50}ms`, transitionDuration: '500ms' }}
+                  >
+                    {IconComponent && <IconComponent className="w-4 h-4" />}
+                    {tool}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
