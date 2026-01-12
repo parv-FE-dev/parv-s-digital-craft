@@ -1,18 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, Calendar, Layers, Star, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  Calendar,
+  Layers,
+  Star,
+  Zap,
+} from "lucide-react";
 
 const Hero = () => {
   const [isHydrated, setIsHydrated] = useState(false);
-  const [displayedText, setDisplayedText] = useState('');
+  const [displayedText, setDisplayedText] = useState("");
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const codeLines = [
-    'const developer = new FrontendCraftsman();',
+    "const developer = new FrontendCraftsman();",
     'developer.expertise = ["React", "TypeScript", "Next.js"];',
     'developer.passion = "Building Exceptional UX";',
-    'developer.mission = "Performance + Elegance";'
+    'developer.mission = "Performance + Elegance";',
   ];
 
   useEffect(() => {
@@ -30,7 +37,7 @@ const Hero = () => {
       return () => clearTimeout(pauseTimer);
     }
 
-    if (isDeleting && displayedText === '') {
+    if (isDeleting && displayedText === "") {
       setIsDeleting(false);
       setCurrentLineIndex((prev) => (prev + 1) % codeLines.length);
       return;
@@ -48,31 +55,24 @@ const Hero = () => {
   }, [displayedText, isDeleting, currentLineIndex, isHydrated]);
 
   const skills = [
-    { name: 'React', level: 95 },
-    { name: 'TypeScript', level: 90 },
-    { name: 'Next.js', level: 88 },
-    { name: 'Performance', level: 92 }
-  ];
-
-  const metrics = [
-    { value: '4+', label: 'Years Experience', Icon: Calendar },
-    { value: '50+', label: 'Projects Delivered', Icon: Layers },
-    { value: '99%', label: 'Client Satisfaction', Icon: Star },
-    { value: '<2s', label: 'Avg Load Time', Icon: Zap }
+    { name: "React", level: 95 },
+    { name: "TypeScript", level: 90 },
+    { name: "Next.js", level: 88 },
+    { name: "Performance", level: 92 },
   ];
 
   return (
     <section className="relative min-h-[calc(100vh-60px)] flex items-center justify-center overflow-hidden bg-vscode-editor">
       {/* Grid pattern - VS Code style */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--muted-foreground)) 1px, transparent 1px),
                            linear-gradient(90deg, hsl(var(--muted-foreground)) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px'
+          backgroundSize: "20px 20px",
         }}
       />
-      
+
       {/* Line numbers gutter effect */}
       <div className="absolute left-0 top-0 bottom-0 w-12 bg-vscode-sidebar border-r border-border opacity-30" />
 
@@ -83,7 +83,9 @@ const Hero = () => {
             {/* Status badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-secondary rounded border border-border font-mono text-xs">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-muted-foreground">// Available for opportunities</span>
+              <span className="text-muted-foreground">
+                // Available for opportunities
+              </span>
             </div>
 
             {/* Headlines - code style */}
@@ -99,36 +101,34 @@ const Hero = () => {
                 Hi, I'm <span className="vscode-function">Parv</span>
               </h1>
               <h2 className="text-xl lg:text-2xl text-muted-foreground font-normal">
-                <span className="vscode-comment">// </span>Front-End Craftsman & Performance Architect
+                <span className="vscode-comment">// </span>Front-End Craftsman &
+                Performance Architect
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
-                Transforming complex requirements into elegant, high-performance web experiences. 
-                Specializing in React, TypeScript, and modern front-end architecture.
+                Transforming complex requirements into elegant, high-performance
+                web experiences. Specializing in React, TypeScript, and modern
+                front-end architecture.
               </p>
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3">
-              <Button asChild className="group px-6 py-5 rounded font-mono text-sm bg-primary hover:bg-primary/90">
-                <a href="#projects" className="flex items-center space-x-2">
+              <Button
+                asChild
+                className="group px-6 py-5 rounded font-mono text-sm bg-primary hover:bg-primary/90"
+              >
+                <a href="#experience" className="flex items-center space-x-2">
                   <span>viewMyWork()</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
               </Button>
-              <Button variant="outline" asChild className="px-6 py-5 font-mono text-sm border-border hover:bg-secondary">
+              <Button
+                variant="outline"
+                asChild
+                className="px-6 py-5 font-mono text-sm border-border hover:bg-secondary"
+              >
                 <a href="#contact">getInTouch()</a>
               </Button>
-            </div>
-
-            {/* Metrics grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
-              {metrics.map((metric, index) => (
-                <div key={index} className="text-center p-3 bg-card rounded border border-border hover:border-primary/50 transition-colors duration-300">
-                  <metric.Icon className="w-5 h-5 mx-auto mb-1.5 text-primary" />
-                  <div className="text-xl font-bold font-mono text-foreground">{metric.value}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{metric.label}</div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -147,7 +147,10 @@ const Hero = () => {
               {/* Editor content with line numbers */}
               <div className="flex">
                 {/* Line numbers */}
-                <div className="py-4 px-3 text-right font-mono text-sm select-none bg-vscode-sidebar border-r border-border" style={{ color: 'hsl(var(--vscode-line-number))' }}>
+                <div
+                  className="py-4 px-3 text-right font-mono text-sm select-none bg-vscode-sidebar border-r border-border"
+                  style={{ color: "hsl(var(--vscode-line-number))" }}
+                >
                   <div>1</div>
                   <div>2</div>
                   <div>3</div>
@@ -163,14 +166,16 @@ const Hero = () => {
                 <div className="flex-1 p-4 font-mono text-sm space-y-1 overflow-x-auto">
                   <div>
                     <span className="vscode-keyword">import</span>
-                    <span className="text-foreground"> {'{'} </span>
+                    <span className="text-foreground"> {"{"} </span>
                     <span className="vscode-type">Excellence</span>
-                    <span className="text-foreground"> {'}'} </span>
+                    <span className="text-foreground"> {"}"} </span>
                     <span className="vscode-keyword">from</span>
                     <span className="vscode-string"> 'passion'</span>
                     <span className="text-foreground">;</span>
                   </div>
-                  <div className="vscode-comment">// Live coding demonstration</div>
+                  <div className="vscode-comment">
+                    // Live coding demonstration
+                  </div>
                   <div className="min-h-[20px]">
                     {isHydrated ? (
                       <>
@@ -182,16 +187,20 @@ const Hero = () => {
                     )}
                   </div>
                   <div className="vscode-comment">// Core Competencies</div>
-                  
+
                   {/* Skills as code */}
                   {skills.map((skill, index) => (
                     <div key={index} className="flex items-center gap-2">
-                      <span className="vscode-variable">{skill.name.toLowerCase()}</span>
+                      <span className="vscode-variable">
+                        {skill.name.toLowerCase()}
+                      </span>
                       <span className="text-foreground">:</span>
                       <div className="flex-1 max-w-[150px] h-2 bg-muted rounded-sm overflow-hidden">
                         <div
                           className="h-full bg-primary transition-all duration-1000 ease-out"
-                          style={{ width: isHydrated ? `${skill.level}%` : '0%' }}
+                          style={{
+                            width: isHydrated ? `${skill.level}%` : "0%",
+                          }}
                         />
                       </div>
                       <span className="vscode-number">{skill.level}</span>
