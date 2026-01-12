@@ -123,12 +123,11 @@ const Experience = () => {
                 style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
                 {/* Timeline dot */}
-                {/* Timeline dot */}
                 <div className="absolute left-6 md:left-8 top-6 -translate-x-1/2 z-10">
-                  {index === 0 && (
+                  {expandedId === exp.id && (
                     <div className="absolute inset-0 w-4 h-4 rounded-full bg-primary/50 animate-ping" />
                   )}
-                  <div className={`relative w-4 h-4 rounded-full bg-primary border-4 border-background ${index === 0 ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}`} />
+                  <div className={`relative w-4 h-4 rounded-full bg-primary border-4 border-background ${expandedId === exp.id ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}`} />
                 </div>
 
                 {/* Content card */}
