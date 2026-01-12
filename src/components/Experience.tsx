@@ -123,7 +123,7 @@ const Experience = () => {
                 style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-6 md:left-8 top-6 w-3 h-3 rounded-full bg-primary border-4 border-background z-10 -translate-x-1/2" />
+                <div className="absolute left-6 md:left-8 top-6 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 -translate-x-1/2" />
 
                 {/* Content card */}
                 <div className="ml-12 md:ml-16">
