@@ -8,40 +8,24 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Marketing Intelligence Dashboard",
-      description: "A comprehensive analytics platform for marketing teams to track campaign performance, visualize data, and generate AI-powered insights.",
+      title: "ResumeAI",
+      description: "AI-powered resume builder that analyzes job descriptions and tailors resumes using GPT-4. Features real-time streaming responses, intelligent suggestions, and ATS optimization scoring to help job seekers land interviews.",
       image: "/placeholder.svg",
-      tech: ["React", "TypeScript", "Redux-Saga", "Recharts", "Tailwind CSS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      highlights: ["30% faster load times", "AI-powered insights", "Real-time data sync"]
+      tech: ["React", "TypeScript", "OpenAI API", "Tailwind CSS", "Streaming"],
+      liveUrl: "",
+      githubUrl: "https://github.com/parv-FE-dev",
+      highlights: ["GPT-4 Integration", "Real-time Streaming", "ATS Score Analysis"],
+      status: "coming-soon" as const,
     },
     {
-      title: "AI Image Generator",
-      description: "Web application integrating Stable Diffusion API for generating custom images based on text prompts with style customization.",
+      title: "DocChat",
+      description: "RAG-powered document chat application. Upload PDFs and have intelligent conversations with your documents using vector embeddings and LLM-powered retrieval. Built with a focus on fast semantic search and accurate citation.",
       image: "/placeholder.svg",
-      tech: ["Next.js", "TypeScript", "Stable Diffusion", "Tailwind CSS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      highlights: ["Text-to-image generation", "Style presets", "Gallery feature"]
-    },
-    {
-      title: "Component Library",
-      description: "A comprehensive design system and component library built with Storybook, used across multiple projects to ensure consistency.",
-      image: "/placeholder.svg",
-      tech: ["React", "Storybook", "TypeScript", "CSS Modules"],
-      liveUrl: "#",
-      githubUrl: "#",
-      highlights: ["40+ components", "Full documentation", "Dark mode support"]
-    },
-    {
-      title: "E-commerce Platform",
-      description: "Full-featured e-commerce solution with product catalog, cart functionality, and secure checkout integration.",
-      image: "/placeholder.svg",
-      tech: ["React", "Next.js", "Stripe", "PostgreSQL"],
-      liveUrl: "#",
-      githubUrl: "#",
-      highlights: ["Secure payments", "SEO optimized", "Mobile responsive"]
+      tech: ["Next.js", "TypeScript", "RAG", "Vector DB", "OpenAI API"],
+      liveUrl: "",
+      githubUrl: "https://github.com/parv-FE-dev",
+      highlights: ["RAG Pipeline", "PDF Processing", "Semantic Search"],
+      status: "coming-soon" as const,
     }
   ];
 
@@ -82,6 +66,12 @@ const Projects = () => {
                   </div>
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Coming soon badge */}
+                  {project.status === "coming-soon" && (
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-mono font-medium">
+                      Coming Soon
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -92,20 +82,28 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     <div className="flex items-center gap-2">
-                      <a 
-                        href={project.githubUrl}
-                        className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                        aria-label="View GitHub repository"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                      <a 
-                        href={project.liveUrl}
-                        className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                        aria-label="View live demo"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
+                      {project.githubUrl && (
+                        <a 
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                          aria-label="View GitHub repository"
+                        >
+                          <Github className="w-5 h-5" />
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a 
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                          aria-label="View live demo"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      )}
                     </div>
                   </div>
 

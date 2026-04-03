@@ -9,7 +9,7 @@ const Navbar = () => {
     { label: "home.tsx", href: "#home", icon: User },
     { label: "about.tsx", href: "#about", icon: FileText },
     { label: "experience.tsx", href: "#experience", icon: Briefcase },
-    // { label: "projects.tsx", href: "#projects", icon: FileCode },
+    { label: "projects.tsx", href: "#projects", icon: FileCode },
     { label: "skills.tsx", href: "#skills", icon: Wrench },
     { label: "contact.tsx", href: "#contact", icon: Mail },
   ];

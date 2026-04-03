@@ -19,11 +19,12 @@ const skillIcons: Record<string, LucideIcon> = {
   "Git/GitHub": GitBranch,
   "AWS": Cloud,
   "REST APIs": Plug,
-  "OpenAI APIs": Sparkles,
-  "Stable Diffusion": Image,
+  "OpenAI API": Sparkles,
+  "RAG": Sparkles,
+  "Vector Databases": Layers,
   "Node.js": Server,
-  "SASS": Paintbrush,
   "Storybook": BookOpen,
+  "Docker": Container,
 };
 
 const toolIcons: Record<string, LucideIcon> = {
@@ -46,17 +47,17 @@ const Skills = () => {
     {
       title: "Expert",
       description: "Daily drivers I know inside out",
-      skills: ["React", "TypeScript", "JavaScript", "HTML/CSS", "Tailwind CSS"]
+      skills: ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS"]
     },
     {
       title: "Proficient",
       description: "Confident and production-ready",
-      skills: ["Next.js", "Redux-Saga", "Git/GitHub", "AWS", "REST APIs"]
+      skills: ["OpenAI API", "RAG", "Redux-Saga", "Git/GitHub", "REST APIs"]
     },
     {
       title: "Familiar",
       description: "Growing experience with these",
-      skills: ["OpenAI APIs", "Stable Diffusion", "Node.js", "SASS", "Storybook"]
+      skills: ["Vector Databases", "Node.js", "AWS", "Storybook", "Docker"]
     }
   ];
 

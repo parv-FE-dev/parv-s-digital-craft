@@ -13,14 +13,14 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Parv Saxena | Front-End Developer</title>
-        <meta 
-          name="description" 
-          content="Front-End Developer specializing in React, TypeScript, and modern web technologies. 4+ years of experience building high-performance web applications." 
+        <title>Parv Saxena | Senior Frontend Engineer</title>
+        <meta
+          name="description"
+          content="Senior Frontend Engineer specializing in React, TypeScript, and AI-powered web applications. 5+ years building high-performance products."
         />
-        <meta name="keywords" content="Front-End Developer, React Developer, TypeScript, Web Developer, Bengaluru, India" />
-        <meta property="og:title" content="Parv Saxena | Front-End Developer" />
-        <meta property="og:description" content="Building intuitive, high-performance web experiences with React & TypeScript." />
+        <meta name="keywords" content="Senior Frontend Engineer, AI, RAG, OpenAI, React Developer, TypeScript, Web Developer, Bengaluru, India" />
+        <meta property="og:title" content="Parv Saxena | Senior Frontend Engineer" />
+        <meta property="og:description" content="Senior Frontend Engineer | Building AI-Powered Products" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://parvsaxena.dev" />
       </Helmet>
@@ -34,7 +34,7 @@ const Index = () => {
           </div>
           <About />
           <Experience />
-          {/* <Projects /> */}
+          <Projects />
           <Skills />
           <Contact />
         </main>

@@ -16,10 +16,10 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const codeLines = [
-    "const developer = new FrontendCraftsman();",
-    'developer.expertise = ["React", "TypeScript", "Next.js"];',
-    'developer.passion = "Building Exceptional UX";',
-    'developer.mission = "Performance + Elegance";',
+    "const engineer = new SeniorFrontendEngineer();",
+    'engineer.stack = ["React", "TypeScript", "Next.js"];',
+    'engineer.focus = "AI-Powered Products";',
+    'engineer.experience = "5+ years shipping at scale";',
   ];
 
   useEffect(() => {
@@ -56,9 +56,9 @@ const Hero = () => {
 
   const skills = [
     { name: "React", level: 95 },
-    { name: "TypeScript", level: 90 },
+    { name: "TypeScript", level: 92 },
     { name: "Next.js", level: 88 },
-    { name: "Performance", level: 92 },
+    { name: "AI Integration", level: 85 },
   ];
 
   return (
@@ -84,7 +84,7 @@ const Hero = () => {
             <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-secondary rounded border border-border font-mono text-xs">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
               <span className="text-muted-foreground">
-                // Available for opportunities
+                // Open to senior roles
               </span>
             </div>
 
@@ -92,7 +92,7 @@ const Hero = () => {
             <div className="space-y-4 font-mono">
               <div className="text-muted-foreground text-sm">
                 <span className="vscode-keyword">const</span>{" "}
-                <span className="vscode-variable">developer</span>{" "}
+                <span className="vscode-variable">engineer</span>{" "}
                 <span className="text-foreground">=</span>{" "}
                 <span className="vscode-string">"Parv Saxena"</span>
                 <span className="text-foreground">;</span>
@@ -101,13 +101,12 @@ const Hero = () => {
                 Hi, I'm <span className="vscode-function">Parv</span>
               </h1>
               <h2 className="text-xl lg:text-2xl text-muted-foreground font-normal">
-                <span className="vscode-comment">// </span>Front-End Craftsman &
-                Performance Architect
+                <span className="vscode-comment">// </span>Senior Frontend Engineer | Building AI-Powered Products
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
-                Transforming complex requirements into elegant, high-performance
-                web experiences. Specializing in React, TypeScript, and modern
-                front-end architecture.
+                Building high-performance, AI-powered web experiences at scale.
+                Specializing in React, TypeScript, and modern frontend
+                architecture with 5+ years of experience.
               </p>
             </div>
 
@@ -139,7 +138,7 @@ const Hero = () => {
               <div className="flex items-center bg-vscode-tab-inactive border-b border-border">
                 <div className="flex items-center gap-2 px-4 py-2 bg-vscode-tab-active border-t border-t-primary text-sm font-mono text-foreground">
                   <span className="text-primary">TS</span>
-                  <span>developer.ts</span>
+                  <span>engineer.ts</span>
                   <span className="text-muted-foreground">×</span>
                 </div>
               </div>

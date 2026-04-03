@@ -48,18 +48,31 @@ const Contact = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Let's work <span className="text-gradient">together</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            I'm currently open to new opportunities and collaborations. Whether
-            you have a project in mind or just want to connect, I'd love to hear
-            from you.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+            I'm actively exploring senior frontend roles at AI-first companies.
+            If you're building products with LLMs, RAG, or real-time AI — I'd love to chat.
           </p>
 
-          {/* CTA Button */}
-          <div className="mb-16">
+          {/* Recruiter CTA */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg bg-primary/10 border border-primary/20">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+            <p className="text-base font-semibold text-foreground">
+              Open to Senior Frontend Engineer roles · ₹40 LPA+ · Bengaluru / Remote
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
             <Button variant="hero" size="xl" asChild>
               <a href="mailto:parvsaxena94@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Say Hello
+              </a>
+            </Button>
+            <Button variant="outline" size="xl" asChild>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <FileText className="mr-2 h-5 w-5" />
+                Download Resume
               </a>
             </Button>
           </div>

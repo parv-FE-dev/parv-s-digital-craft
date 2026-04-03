@@ -26,18 +26,18 @@ const Experience = () => {
   const experiences: Experience[] = [
     {
       id: 1,
-      company: 'Lifesight',
-      role: 'Senior Frontend Developer',
-      period: 'Jan 2023 - Present',
+      company: 'Neurowyzr',
+      role: 'Software Engineer (Frontend)',
+      period: '2023 - Present',
       location: 'Bengaluru, India',
-      description: 'Leading front-end architecture and performance optimization initiatives for enterprise-scale marketing analytics platform serving Fortune 500 clients.',
+      description: 'Building AI-powered healthcare and neuroscience platform interfaces, leading frontend architecture and performance optimization initiatives.',
       achievements: [
         'Reduced initial page load time by 65% through code splitting and lazy loading strategies',
         'Architected reusable component library used across 8+ product teams',
         'Implemented real-time data visualization dashboard handling 1M+ data points',
         'Mentored 5 junior developers in React best practices and TypeScript patterns'
       ],
-      technologies: ['React', 'TypeScript', 'Next.js', 'Redux', 'Tailwind CSS', 'Chart.js'],
+      technologies: ['React', 'TypeScript', 'Next.js', 'Redux', 'Tailwind CSS', 'OpenAI API'],
       impact: [
         { metric: 'Performance', value: '+65%' },
         { metric: 'Code Reusability', value: '+80%' },
