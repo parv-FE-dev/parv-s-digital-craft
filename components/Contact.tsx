@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Linkedin, Github, FileText } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";

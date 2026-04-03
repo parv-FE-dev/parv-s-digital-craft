@@ -1,3 +1,5 @@
+"use client";
+
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { 
   Atom, FileCode, Code, FileText, Palette, 

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar, MapPin, ChevronDown, Trophy, TrendingUp, Download, CheckCircle } from "lucide-react";

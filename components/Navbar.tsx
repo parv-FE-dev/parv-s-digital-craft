@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { X, FileCode, FileText, Briefcase, Wrench, Mail, User } from "lucide-react";
 

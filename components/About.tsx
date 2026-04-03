@@ -1,3 +1,5 @@
+"use client";
+
 import { Code2, Sparkles, Zap } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
