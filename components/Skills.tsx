@@ -47,25 +47,25 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Expert",
+      title: "Core",
       description: "Daily drivers I know inside out",
-      skills: ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS"]
+      skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"]
     },
     {
-      title: "Proficient",
-      description: "Confident and production-ready",
-      skills: ["OpenAI API", "RAG", "Redux-Saga", "Git/GitHub", "REST APIs"]
+      title: "State & Architecture",
+      description: "Building scalable systems",
+      skills: ["Redux", "Zustand", "Component Architecture", "Design Systems"]
     },
     {
-      title: "Familiar",
-      description: "Growing experience with these",
-      skills: ["Vector Databases", "Node.js", "AWS", "Storybook", "Docker"]
+      title: "AI & APIs",
+      description: "AI-integrated product development",
+      skills: ["OpenAI API", "Anthropic Claude", "Vercel AI SDK", "RAG Pipelines"]
     }
   ];
 
   const tools = [
-    "VS Code", "Figma", "Git", "Chrome DevTools", "Postman", 
-    "Jira", "Slack", "Notion", "Vercel", "Docker"
+    "Git", "Vite", "Framer Motion", "shadcn/ui",
+    "SEO", "Core Web Vitals"
   ];
 
   return (

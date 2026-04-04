@@ -18,11 +18,11 @@ const FAQ_ENTRIES: FAQEntry[] = [
   },
   {
     keywords: ["experience", "career", "work history", "background", "worked at", "jobs"],
-    answer: `Parv has ${ctx.yearsExperience} years of experience:\n\n- **${ctx.experience[0].role}** at ${ctx.experience[0].company} (${ctx.experience[0].period}) — ${ctx.experience[0].description}\n- **${ctx.experience[1].role}** at ${ctx.experience[1].company} (${ctx.experience[1].period}) — Built 12+ production apps with 98+ Lighthouse scores\n- **${ctx.experience[2].role}** (${ctx.experience[2].period}) — Completed 20+ projects with 100% client satisfaction`,
+    answer: `Parv has ${ctx.yearsExperience} years of experience:\n\n- **${ctx.experience[0].role}** at ${ctx.experience[0].company} (${ctx.experience[0].period}) — ${ctx.experience[0].description}\n- **${ctx.experience[1].role}** at ${ctx.experience[1].company} (${ctx.experience[1].period}) — ${ctx.experience[1].description}\n- **${ctx.experience[2].role}** at ${ctx.experience[2].company} (${ctx.experience[2].period}) — ${ctx.experience[2].description}`,
   },
   {
     keywords: ["skills", "tech stack", "technologies", "languages", "frameworks", "what can"],
-    answer: `Parv's tech stack:\n\n- **Expert:** ${ctx.skills.expert.join(", ")}\n- **Proficient:** ${ctx.skills.proficient.join(", ")}\n- **Familiar:** ${ctx.skills.familiar.join(", ")}\n\nTools: ${ctx.tools.join(", ")}`,
+    answer: `Parv's tech stack:\n\n- **Core:** ${ctx.skills.core.join(", ")}\n- **State & Architecture:** ${ctx.skills.state.join(", ")}\n- **AI:** ${ctx.skills.ai.join(", ")}\n\nTools: ${ctx.skills.tools.join(", ")}`,
   },
   {
     keywords: ["projects", "built", "portfolio", "what has he built", "showcase"],
@@ -30,11 +30,11 @@ const FAQ_ENTRIES: FAQEntry[] = [
   },
   {
     keywords: ["contact", "email", "reach", "hire", "get in touch", "connect"],
-    answer: `You can reach Parv at:\n\n- **Email:** ${ctx.email}\n- **LinkedIn:** [${ctx.linkedin}](${ctx.linkedin})\n- **GitHub:** [${ctx.github}](${ctx.github})`,
+    answer: `You can reach Parv at:\n\n- **Phone:** ${ctx.phone}\n- **Email:** ${ctx.email}\n- **LinkedIn:** [${ctx.linkedin}](${ctx.linkedin})\n- **GitHub:** [${ctx.github}](${ctx.github})\n- **Website:** ${ctx.website}`,
   },
   {
     keywords: ["current role", "neurowyzr", "currently", "working on", "present"],
-    answer: `Parv is currently a **${ctx.experience[0].role}** at **${ctx.experience[0].company}** (${ctx.experience[0].period}). ${ctx.experience[0].description} Key achievements include reducing page load by 65%, architecting a component library used by 8+ teams, and building a dashboard handling 1M+ data points.`,
+    answer: `Parv is currently a **${ctx.experience[0].role}** at **${ctx.experience[0].company}** (${ctx.experience[0].period}). ${ctx.experience[0].description} Key achievements include building AI-driven cognitive assessment games, designing a role-based Admin Portal improving efficiency by 40%, and achieving zero critical vulnerabilities in pen testing.`,
   },
   {
     keywords: ["react", "typescript", "frontend framework"],
@@ -42,7 +42,7 @@ const FAQ_ENTRIES: FAQEntry[] = [
   },
   {
     keywords: ["ai", "machine learning", "ml", "artificial intelligence", "openai", "claude", "llm"],
-    answer: `Parv has hands-on AI/ML integration experience:\n\n- Built **ResumeAI** using Anthropic Claude for resume analysis\n- Built **ChatPDF** with RAG pipeline and TF-IDF for document intelligence\n- Works with OpenAI API at ${ctx.currentCompany} for healthcare AI interfaces\n- Proficient with RAG and vector databases`,
+    answer: `Parv has hands-on AI/LLM integration experience:\n\n- Built **ResumeAI** using Claude AI (Vercel AI SDK) for resume analysis with real-time LLM streaming\n- Built **ChatPDF** with full RAG pipeline from scratch (TF-IDF, cosine similarity, page-level citations)\n- Built AI-powered content generation tool using GPT-3 & Stable Diffusion at True Sparrow\n- Proficient with OpenAI API, Anthropic Claude, Vercel AI SDK, RAG Pipelines`,
   },
   {
     keywords: ["resume", "cv", "download"],
@@ -62,7 +62,7 @@ const FAQ_ENTRIES: FAQEntry[] = [
   },
   {
     keywords: ["why hire", "strengths", "why parv", "what makes", "stand out"],
-    answer: `Here's why Parv stands out:\n\n- **Performance expert** — 65% load time reduction, 98+ Lighthouse scores\n- **AI integration** — Hands-on experience with Claude, OpenAI, RAG pipelines\n- **Scale** — Built dashboards handling 1M+ data points, component libraries for 8+ teams\n- **Leadership** — Mentored 5 junior developers\n- **Reliability** — 100% client satisfaction as a freelancer, 20+ successful projects`,
+    answer: `Here's why Parv stands out:\n\n- **Performance expert** — 10× load time improvement (14s → <1s) at Lifesight\n- **AI integration** — Built RAG pipelines, LLM streaming, AI analysis tools from scratch\n- **Founding engineer** — Built Neurowyzr from concept to production enterprise platform\n- **Security** — Zero critical/high-risk vulnerabilities in pen testing\n- **Leadership** — Led contract engineering team, improved operational efficiency by 40%`,
   },
   {
     keywords: ["education", "degree", "university", "college", "school", "study"],

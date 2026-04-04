@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, FileText, Phone, Globe } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Contact = () => {
@@ -9,16 +9,16 @@ const Contact = () => {
 
   const contactLinks = [
     {
+      icon: Phone,
+      label: "Phone",
+      value: "8698571577",
+      href: "tel:+918698571577",
+    },
+    {
       icon: Mail,
       label: "Email",
       value: "parvsaxena94@gmail.com",
       href: "mailto:parvsaxena94@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Bengaluru, India",
-      href: "#",
     },
   ];
 

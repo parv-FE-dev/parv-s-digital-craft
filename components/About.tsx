@@ -48,23 +48,23 @@ const About = () => {
             {/* Left column - Bio */}
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm Parv Saxena, a Frontend Engineer based in Bengaluru, India, with over
-                4 years of experience building scalable, high-performance web applications. Currently at
-                <span className="text-foreground font-medium"> Neurowyzr</span> as a Senior Frontend Engineer, I specialize
-                in performance optimization, clean architecture, and delivering impactful,
-                user-centric products using React and TypeScript.
+                I'm Parv Saxena, a Senior Frontend Engineer with 5+ years building
+                scalable web applications and AI-integrated products using React, Next.js,
+                and TypeScript. Currently the founding frontend engineer at
+                <span className="text-foreground font-medium"> Neurowyzr</span>, I combine deep frontend
+                expertise with hands-on AI/LLM integration to ship intelligent, user-facing products.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My journey includes being a founding front-end engineer at Neurowyzr, reducing
-                load times from 14s to under 1s at Lifesight, building AI-powered PoCs with
-                OpenAI GPT-3 at True Sparrow, and shipping scalable features used by enterprise
-                clients. I'm passionate about the intersection of AI and frontend engineering.
+                I've built RAG pipelines, real-time LLM streaming interfaces, and AI-powered
+                analysis tools from scratch. At Lifesight I reduced dashboard load times
+                from 14s to under 1s (10× improvement), and at True Sparrow I built an AI-powered
+                content generation tool using GPT-3 and Stable Diffusion.
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
                 <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">4+</div>
+                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">5+</div>
                   <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
                 </div>
                 <div>

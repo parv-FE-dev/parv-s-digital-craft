@@ -10,23 +10,23 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "ResumeAI",
-      description: "AI-powered resume optimizer — upload your resume, paste a job description, and get instant match scoring (0-100), keyword gap analysis, AI-rewritten bullet points, and actionable suggestions. Features real-time streaming analysis with Claude AI, 4-layer caching for cost optimization, and a demo mode for visitors.",
+      title: "ResumeAI — AI Resume Optimizer",
+      description: "Full-stack AI tool that analyzes resumes against job descriptions — delivers match scoring, keyword gap detection, and AI-rewritten bullet points end-to-end in under 10 seconds. Real-time LLM streaming, PDF parsing pipeline, 4-layer caching & rate limiting.",
       image: "/placeholder.svg",
-      tech: ["Next.js 16", "TypeScript", "Claude AI", "Vercel AI SDK", "Tailwind CSS 4", "Zustand", "Framer Motion"],
+      tech: ["Next.js 16", "TypeScript", "Claude AI", "Vercel AI SDK", "Zustand", "Tailwind CSS 4", "Framer Motion"],
       liveUrl: "https://resume-ai-seven-omega.vercel.app/",
       githubUrl: "https://github.com/parv-FE-dev/resume-ai",
-      highlights: ["AI Match Scoring", "Real-time Streaming", "Bullet Rewriting", "4-Layer Caching"],
+      highlights: ["Real-time LLM Streaming", "4-Layer Caching", "PDF Parsing Pipeline", "Match Scoring"],
       status: "live" as const,
     },
     {
-      title: "ChatPDF",
-      description: "RAG-powered document Q&A — upload any PDF and chat with it using AI. Get answers with clickable page-level [Page X] citations, auto-summary on upload, and full chat history. Built with a custom TF-IDF + chunking RAG pipeline for fast semantic retrieval without external embedding APIs.",
+      title: "ChatPDF — RAG Document Intelligence",
+      description: "RAG-powered PDF Q&A with clickable page-level citations. Built full retrieval pipeline from scratch: PDF → chunking → TF-IDF cosine similarity → context assembly → Claude streaming with [Page X] citations. Auto-summarization on upload.",
       image: "/placeholder.svg",
-      tech: ["Next.js 15", "TypeScript", "Claude AI", "RAG Pipeline", "TF-IDF", "Tailwind CSS 4", "Zustand"],
+      tech: ["Next.js 15", "TypeScript", "Claude AI", "Custom TF-IDF Engine", "RAG Pipeline", "Zustand", "Tailwind CSS 4"],
       liveUrl: "https://chat-with-pdf-mu.vercel.app/",
       githubUrl: "https://github.com/parv-FE-dev/chat-with-pdf",
-      highlights: ["RAG Pipeline", "Page Citations", "Auto-Summary", "Custom TF-IDF Engine"],
+      highlights: ["Full RAG Pipeline", "Page-Level Citations", "TF-IDF Retrieval", "Auto-Summarization"],
       status: "live" as const,
     }
   ];

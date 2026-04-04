@@ -32,14 +32,12 @@ const Experience = () => {
       role: 'Senior Frontend Engineer',
       period: 'Jul 2024 - Present',
       location: 'Remote',
-      description: 'Founding front-end engineer who helped build the product from early-stage concept to a production-ready enterprise platform.',
+      description: 'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients.',
       achievements: [
-        'Founding front-end engineer — built the product from early-stage concept to production-ready enterprise platform',
-        'Improved platform security by achieving zero critical/high-risk vulnerabilities in penetration testing',
-        'Built multiple interactive cognitive games using reusable game engine logic, contributing directly to new revenue streams',
-        'Designed and developed a role-based Admin Portal for test creation and management, improving operational efficiency by 40%',
-        'Led a contract engineering team to deliver scalable frontend solutions across multiple client deployments',
-        'Implemented modular component architecture to improve maintainability and code reusability'
+        'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients',
+        'Built interactive AI-driven cognitive assessment games with reusable game engine, scoring algorithms, and adaptive difficulty — directly contributing to new revenue streams',
+        'Designed role-based Admin Portal for test management, improving operational efficiency by 40%. Led contract engineering team',
+        'Achieved zero critical/high-risk vulnerabilities in penetration testing. Implemented modular component architecture with shared design system'
       ],
       technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Redux'],
       impact: [
@@ -51,63 +49,40 @@ const Experience = () => {
     {
       id: 2,
       company: 'Lifesight',
-      role: 'Software Development Engineer II (Frontend)',
+      role: 'SDE II, Frontend',
       period: 'Jul 2023 - Jul 2024',
-      location: 'Bengaluru, KA',
-      description: 'Core contributor to Lifesight 3.0, a large-scale market measurement platform used by enterprise clients.',
+      location: 'Bengaluru',
+      description: 'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s.',
       achievements: [
-        'Core contributor to Lifesight 3.0, a large-scale market measurement platform used by enterprise clients',
-        'Replaced fragmented charting tools with a unified visualization system, reducing load time from 14s to <1s (10x improvement)',
-        'Built custom API integrations to improve data accuracy and optimize ad spend ROI for customers',
-        'Designed and shipped core modules such as Attribution and Customer Journey Analytics using React + TypeScript',
-        'Led product-wide UI cleanup sprints to improve UX consistency and performance',
-        'Collaborated with backend, data, and product teams to ship scalable features used in production'
+        'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s (10× improvement)',
+        'Shipped Attribution and Customer Journey Analytics modules using React + TypeScript',
+        'Led UI sprints improving Core Web Vitals'
       ],
       technologies: ['React', 'TypeScript', 'Redux', 'Data Visualization', 'REST APIs'],
       impact: [
         { metric: 'Load Time', value: '14s → <1s' },
-        { metric: 'Improvement', value: '10x' },
-        { metric: 'Modules Shipped', value: '2 Core' }
+        { metric: 'Improvement', value: '10×' },
+        { metric: 'Core Web Vitals', value: 'Improved' }
       ]
     },
     {
       id: 3,
       company: 'True Sparrow Systems',
-      role: 'Front-end Developer',
+      role: 'Front-End Developer',
       period: 'Jul 2021 - Jun 2023',
       location: 'Remote',
       description: 'Built scalable React applications serving thousands of users across fitness and wellness platforms.',
       achievements: [
         'Built scalable React applications serving thousands of users across fitness and wellness platforms',
-        'Developed an AI-powered PoC using OpenAI GPT-3 and Stable Diffusion APIs for text and image generation',
-        'Improved SEO and page performance, increasing organic traffic and search rankings',
-        'Built a subscription bundling system (Moxie Pass) to improve conversion and user retention',
-        'Designed flexible booking flows with multiple payment methods to enhance user experience'
+        'Developed AI-powered content generation tool using OpenAI GPT-3 & Stable Diffusion — full frontend for prompt input, real-time preview; shipped and adopted by content team',
+        'Built subscription bundling system (Moxie Pass) improving conversion & retention',
+        'Boosted SEO and organic traffic'
       ],
       technologies: ['React', 'JavaScript', 'TypeScript', 'OpenAI API', 'SCSS', 'Redux'],
       impact: [
         { metric: 'Users Served', value: '1000s' },
-        { metric: 'AI PoC', value: 'GPT-3' },
+        { metric: 'AI Tool', value: 'GPT-3 + SD' },
         { metric: 'SEO', value: 'Improved' }
-      ]
-    },
-    {
-      id: 4,
-      company: 'True Sparrow Systems',
-      role: 'Front-End Intern',
-      period: 'May 2021 - Jun 2021',
-      location: 'Remote',
-      description: 'Built a real-time progress tracking dashboard with leaderboard functionality.',
-      achievements: [
-        'Built a real-time progress tracking dashboard with leaderboard functionality',
-        'Implemented social sharing features, increasing user engagement and retention',
-        'Gained hands-on experience with React, UI optimization, and production workflows'
-      ],
-      technologies: ['React', 'JavaScript', 'CSS', 'REST APIs'],
-      impact: [
-        { metric: 'Dashboard', value: 'Real-time' },
-        { metric: 'Engagement', value: 'Increased' },
-        { metric: 'Experience', value: 'Production' }
       ]
     }
   ];
