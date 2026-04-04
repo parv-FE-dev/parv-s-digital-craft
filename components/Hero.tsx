@@ -21,7 +21,7 @@ const Hero = () => {
     "const engineer = new SeniorFrontendEngineer();",
     'engineer.stack = ["React", "TypeScript", "Next.js"];',
     'engineer.focus = "AI-Powered Products";',
-    'engineer.experience = "5+ years shipping at scale";',
+    'engineer.experience = "4+ years shipping at scale";',
   ];
 
   useEffect(() => {
@@ -106,9 +106,9 @@ const Hero = () => {
                 <span className="vscode-comment">// </span>Senior Frontend Engineer | Building AI-Powered Products
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
-                Building high-performance, AI-powered web experiences at scale.
-                Specializing in React, TypeScript, and modern frontend
-                architecture with 5+ years of experience.
+                Frontend Engineer with 4+ years of experience building scalable,
+                high-performance web applications. Focused on performance optimization,
+                clean architecture, and delivering impactful, user-centric products.
               </p>
             </div>
 

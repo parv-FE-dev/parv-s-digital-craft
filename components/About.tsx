@@ -48,27 +48,27 @@ const About = () => {
             {/* Left column - Bio */}
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm Parv Saxena, a Senior Frontend Engineer based in Bengaluru, India, with over
-                5 years of experience building modern web applications. Currently at
-                <span className="text-foreground font-medium"> Neurowyzr</span>, I specialize
-                in creating high-performance, AI-powered interfaces using React, TypeScript,
-                and modern frontend tooling.
+                I'm Parv Saxena, a Frontend Engineer based in Bengaluru, India, with over
+                4 years of experience building scalable, high-performance web applications. Currently at
+                <span className="text-foreground font-medium"> Neurowyzr</span> as a Senior Frontend Engineer, I specialize
+                in performance optimization, clean architecture, and delivering impactful,
+                user-centric products using React and TypeScript.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My journey includes shipping impactful features that improved load times by
-                30%+, integrating AI capabilities with OpenAI APIs and RAG pipelines, and
-                building component libraries that accelerated development velocity across teams.
-                I'm passionate about the intersection of AI and frontend engineering.
+                My journey includes being a founding front-end engineer at Neurowyzr, reducing
+                load times from 14s to under 1s at Lifesight, building AI-powered PoCs with
+                OpenAI GPT-3 at True Sparrow, and shipping scalable features used by enterprise
+                clients. I'm passionate about the intersection of AI and frontend engineering.
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
                 <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">5+</div>
+                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">4+</div>
                   <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">30%</div>
+                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">10x</div>
                   <div className="text-sm text-muted-foreground mt-1">Performance Gains</div>
                 </div>
                 <div>
