@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import StatusBar from "@/components/StatusBar";
 import CommandPalette from "@/components/CommandPalette";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <StatusBar />
+      <ChatWidget />
     </div>
   );
 }
