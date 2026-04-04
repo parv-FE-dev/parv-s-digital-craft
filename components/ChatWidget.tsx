@@ -70,7 +70,7 @@ export default function ChatWidget() {
       setIsLoading(true);
 
       try {
-        const res = await fetch("/api/chat", {
+        const res = await fetch("https://parv-chat-api.vercel.app/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: text.trim() }),
