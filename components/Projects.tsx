@@ -11,23 +11,23 @@ const Projects = () => {
   const projects = [
     {
       title: "ResumeAI",
-      description: "AI-powered resume builder that analyzes job descriptions and tailors resumes using GPT-4. Features real-time streaming responses, intelligent suggestions, and ATS optimization scoring to help job seekers land interviews.",
+      description: "AI-powered resume optimizer — upload your resume, paste a job description, and get instant match scoring (0-100), keyword gap analysis, AI-rewritten bullet points, and actionable suggestions. Features real-time streaming analysis with Claude AI, 4-layer caching for cost optimization, and a demo mode for visitors.",
       image: "/placeholder.svg",
-      tech: ["React", "TypeScript", "OpenAI API", "Tailwind CSS", "Streaming"],
-      liveUrl: "",
-      githubUrl: "https://github.com/parv-FE-dev",
-      highlights: ["GPT-4 Integration", "Real-time Streaming", "ATS Score Analysis"],
-      status: "coming-soon" as const,
+      tech: ["Next.js 16", "TypeScript", "Claude AI", "Vercel AI SDK", "Tailwind CSS 4", "Zustand", "Framer Motion"],
+      liveUrl: "https://resume-ai-seven-omega.vercel.app/",
+      githubUrl: "https://github.com/parv-FE-dev/resume-ai",
+      highlights: ["AI Match Scoring", "Real-time Streaming", "Bullet Rewriting", "4-Layer Caching"],
+      status: "live" as const,
     },
     {
-      title: "DocChat",
-      description: "RAG-powered document chat application. Upload PDFs and have intelligent conversations with your documents using vector embeddings and LLM-powered retrieval. Built with a focus on fast semantic search and accurate citation.",
+      title: "ChatPDF",
+      description: "RAG-powered document Q&A — upload any PDF and chat with it using AI. Get answers with clickable page-level [Page X] citations, auto-summary on upload, and full chat history. Built with a custom TF-IDF + chunking RAG pipeline for fast semantic retrieval without external embedding APIs.",
       image: "/placeholder.svg",
-      tech: ["Next.js", "TypeScript", "RAG", "Vector DB", "OpenAI API"],
-      liveUrl: "",
-      githubUrl: "https://github.com/parv-FE-dev",
-      highlights: ["RAG Pipeline", "PDF Processing", "Semantic Search"],
-      status: "coming-soon" as const,
+      tech: ["Next.js 15", "TypeScript", "Claude AI", "RAG Pipeline", "TF-IDF", "Tailwind CSS 4", "Zustand"],
+      liveUrl: "https://chat-with-pdf-mu.vercel.app/",
+      githubUrl: "https://github.com/parv-FE-dev/chat-with-pdf",
+      highlights: ["RAG Pipeline", "Page Citations", "Auto-Summary", "Custom TF-IDF Engine"],
+      status: "live" as const,
     }
   ];
 
@@ -69,11 +69,10 @@ const Projects = () => {
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Coming soon badge */}
-                  {project.status === "coming-soon" && (
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-mono font-medium">
-                      Coming Soon
-                    </div>
-                  )}
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-mono font-medium flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                    Live
+                  </div>
                 </div>
 
                 {/* Content */}
