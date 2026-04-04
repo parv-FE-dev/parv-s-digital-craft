@@ -59,7 +59,7 @@ const Contact = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg bg-primary/10 border border-primary/20">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
             <p className="text-base font-semibold text-foreground">
-              Open to Senior Frontend Engineer roles · ₹40 LPA+ · Bengaluru / Remote
+              Open to Senior Frontend Engineer roles
             </p>
           </div>
 
