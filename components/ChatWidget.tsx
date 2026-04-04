@@ -2,7 +2,9 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Sparkles, ArrowUp } from "lucide-react";
+import { X, Sparkles, ArrowUp } from "lucide-react";
+import Lottie from "lottie-react";
+import wavingAnimation from "@/public/waving-boy.json";
 import ChatMessage from "./ChatMessage";
 import { cn } from "@/lib/utils";
 
@@ -109,46 +111,31 @@ export default function ChatWidget() {
   return (
     <>
       {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105",
-          isOpen
-            ? "bg-secondary text-foreground"
-            : "bg-primary text-primary-foreground"
-        )}
-        aria-label={isOpen ? "Close chat" : "Open chat"}
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <X className="h-6 w-6" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="open"
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.5, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <MessageCircle className="h-6 w-6" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-        {!isOpen && messages.length === 0 && (
-          <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+      {!isOpen && (
+        <motion.button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-card border border-border shadow-2xl pl-1 pr-4 py-1 hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300 group"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          aria-label="Open chat with Parv's AI"
+        >
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-secondary flex items-center justify-center">
+            <Lottie
+              animationData={wavingAnimation}
+              loop={true}
+              className="w-14 h-14"
+            />
+          </div>
+          <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+            Ask me anything!
+          </span>
+          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400/60" />
             <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-green-500" />
           </span>
-        )}
-      </button>
+        </motion.button>
+      )}
 
       {/* Chat Window */}
       <AnimatePresence>
