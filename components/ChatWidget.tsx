@@ -16,9 +16,9 @@ interface Message {
 
 const STORAGE_KEY = "parv-chat-messages";
 const SUGGESTED_QUESTIONS = [
-  "What is Parv's experience?",
-  "What has he built?",
-  "How to contact him?",
+  "What's your experience?",
+  "What have you built?",
+  "How can I contact you?",
 ];
 
 export default function ChatWidget() {
@@ -128,7 +128,7 @@ export default function ChatWidget() {
             />
           </div>
           <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-            Ask Parv!
+            // ask parv
           </span>
           <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400/60" />
@@ -170,7 +170,7 @@ export default function ChatWidget() {
               {messages.length === 0 && !isLoading && (
                 <div className="space-y-3">
                   <p className="text-xs text-muted-foreground text-center mt-4">
-                    Ask me anything about Parv!
+                    Hey! Ask me anything about my work.
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center mt-3">
                     {SUGGESTED_QUESTIONS.map((q) => (
@@ -212,7 +212,7 @@ export default function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about Parv..."
+                  placeholder="// ask parv"
                   className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
                   disabled={isLoading}
                 />
