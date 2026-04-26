@@ -65,12 +65,12 @@ const Contact = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <Button variant="hero" size="xl" asChild>
+            {/* <Button variant="hero" size="xl" asChild>
               <a href="mailto:parvsaxena94@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Say Hello
               </a>
-            </Button>
+            </Button> */}
             <Button variant="outline" size="xl" asChild>
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <FileText className="mr-2 h-5 w-5" />
