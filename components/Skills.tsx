@@ -1,7 +1,8 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { 
+import { Section } from "@/components/Section";
+import {
   Atom, FileCode, Code, FileText, Palette, 
   Layers, GitBranch, Cloud, Plug,
   Sparkles, Image, Server, Paintbrush, BookOpen,
@@ -47,6 +48,11 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      title: "AI & APIs",
+      description: "AI-integrated product development",
+      skills: ["OpenAI API", "Anthropic Claude", "Vercel AI SDK", "RAG Pipelines"]
+    },
+    {
       title: "Core",
       description: "Daily drivers I know inside out",
       skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"]
@@ -54,12 +60,7 @@ const Skills = () => {
     {
       title: "State & Architecture",
       description: "Building scalable systems",
-      skills: ["Redux", "Zustand", "Component Architecture", "Design Systems"]
-    },
-    {
-      title: "AI & APIs",
-      description: "AI-integrated product development",
-      skills: ["OpenAI API", "Anthropic Claude", "Vercel AI SDK", "RAG Pipelines"]
+      skills: ["Redux", "Component Architecture", "Design Systems"]
     }
   ];
 
@@ -69,13 +70,12 @@ const Skills = () => {
   ];
 
   return (
-    <section 
-      id="skills" 
-      className="py-24 md:py-32 bg-secondary/20 relative"
+    <Section
+      id="skills"
+      className="bg-secondary/20"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-6xl mx-auto">
+      <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Section header */}
           <div className="mb-16 text-center">
             <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
@@ -141,8 +141,7 @@ const Skills = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };
 

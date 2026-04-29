@@ -2,14 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ChevronDown,
-  Calendar,
-  Layers,
-  Star,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { Container } from "@/components/Section";
 
 const Hero = () => {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -56,11 +50,9 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentLineIndex, isHydrated]);
 
-  const skills = [
-    { name: "React", level: 95 },
-    { name: "TypeScript", level: 92 },
-    { name: "Next.js", level: 88 },
-    { name: "AI Integration", level: 85 },
+  const wins = [
+    "RAG pipelines + LLM streaming UIs",
+    "0 critical vulns at pen-test",
   ];
 
   return (
@@ -78,18 +70,10 @@ const Hero = () => {
       {/* Line numbers gutter effect */}
       <div className="absolute left-0 top-0 bottom-0 w-12 bg-vscode-sidebar border-r border-border opacity-30" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <Container className="relative z-10 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-6 pl-8">
-            {/* Status badge */}
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-secondary rounded border border-border font-mono text-xs">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-              <span className="text-muted-foreground">
-                // Open to senior roles
-              </span>
-            </div>
-
+          <div className="space-y-6 lg:pl-8">
             {/* Headlines - code style */}
             <div className="space-y-4 font-mono">
               <div className="text-muted-foreground text-sm">
@@ -103,14 +87,10 @@ const Hero = () => {
                 Hi, I'm <span className="vscode-function">Parv</span>
               </h1>
               <h2 className="text-xl lg:text-2xl text-muted-foreground font-normal">
-                <span className="vscode-comment">// </span>Senior Frontend Engineer | Building AI-Powered Products
+                <span className="vscode-comment">// </span>Front-End Craftsman & Performance Architect
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
-                Senior Frontend Engineer with 5+ years building scalable web applications
-                and AI-integrated products using React, Next.js, and TypeScript. Built RAG pipelines,
-                real-time LLM streaming interfaces, and AI-powered analysis tools from scratch.
-                Combines deep frontend expertise with hands-on AI/LLM integration to ship
-                intelligent, user-facing products.
+                Transforming complex requirements into elegant, high-performance web experiences. Specializing in React, TypeScript, and modern front-end architecture.
               </p>
             </div>
 
@@ -156,13 +136,11 @@ const Hero = () => {
                 >
                   <div>1</div>
                   <div>2</div>
-                  <div>3</div>
+                  <div className="min-h-[2lh]">3</div>
                   <div>4</div>
                   <div>5</div>
                   <div>6</div>
                   <div>7</div>
-                  <div>8</div>
-                  <div>9</div>
                 </div>
 
                 {/* Code content */}
@@ -179,7 +157,7 @@ const Hero = () => {
                   <div className="vscode-comment">
                     // Live coding demonstration
                   </div>
-                  <div className="min-h-[20px]">
+                  <div className="min-h-[2lh]">
                     {isHydrated ? (
                       <>
                         <span className="text-foreground">{displayedText}</span>
@@ -189,27 +167,22 @@ const Hero = () => {
                       <span className="text-foreground">{codeLines[0]}</span>
                     )}
                   </div>
-                  <div className="vscode-comment">// Core Competencies</div>
-
-                  {/* Skills as code */}
-                  {skills.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <span className="vscode-variable">
-                        {skill.name.toLowerCase()}
+                  <div>
+                    <span className="vscode-keyword">const</span>{" "}
+                    <span className="vscode-variable">wins</span>{" "}
+                    <span className="text-foreground">= [</span>
+                  </div>
+                  {wins.map((win, index) => (
+                    <div key={index} className="pl-4">
+                      <span className="vscode-string">"{win}"</span>
+                      <span className="text-foreground">
+                        {index < wins.length - 1 ? "," : ""}
                       </span>
-                      <span className="text-foreground">:</span>
-                      <div className="flex-1 max-w-[150px] h-2 bg-muted rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-primary transition-all duration-1000 ease-out"
-                          style={{
-                            width: isHydrated ? `${skill.level}%` : "0%",
-                          }}
-                        />
-                      </div>
-                      <span className="vscode-number">{skill.level}</span>
-                      <span className="text-foreground">%</span>
                     </div>
                   ))}
+                  <div>
+                    <span className="text-foreground">];</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -226,7 +199,7 @@ const Hero = () => {
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

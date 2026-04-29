@@ -3,14 +3,14 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "Parv Saxena | Senior Frontend Engineer — AI-Powered Products",
+  title: "Parv Saxena | Senior Frontend Engineer, AI-Powered Products",
   description:
     "Senior Frontend Engineer with 5+ years building high-performance, AI-powered web experiences with React, TypeScript & Next.js.",
   keywords:
     "Senior Frontend Engineer, AI, RAG, OpenAI, React Developer, TypeScript, Next.js, Web Developer, Bengaluru, India",
   authors: [{ name: "Parv Saxena" }],
   openGraph: {
-    title: "Parv Saxena | Senior Frontend Engineer — AI-Powered Products",
+    title: "Parv Saxena | Senior Frontend Engineer, AI-Powered Products",
     description:
       "Senior Frontend Engineer with 5+ years building high-performance, AI-powered web experiences with React, TypeScript & Next.js.",
     type: "website",

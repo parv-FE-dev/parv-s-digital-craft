@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, FileCode, FileText, Briefcase, Wrench, Mail, User } from "lucide-react";
+import { X, FileText, Briefcase, Wrench, Mail, User } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,7 +11,6 @@ const Navbar = () => {
     { label: "home.tsx", href: "#home", icon: User },
     { label: "about.tsx", href: "#about", icon: FileText },
     { label: "experience.tsx", href: "#experience", icon: Briefcase },
-    { label: "projects.tsx", href: "#projects", icon: FileCode },
     { label: "skills.tsx", href: "#skills", icon: Wrench },
     { label: "contact.tsx", href: "#contact", icon: Mail },
   ];
@@ -21,7 +20,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = ["home", "about", "experience", "projects", "skills", "contact"];
+      const sections = ["home", "about", "experience", "skills", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       // Check if near top for home
@@ -47,14 +46,14 @@ const Navbar = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
-    
+
     if (targetId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const headerOffset = 45;
       const elementPosition = element.getBoundingClientRect().top;
@@ -76,14 +75,14 @@ const Navbar = () => {
         {navLinks.map((link) => {
           const isActive = activeSection === link.href.replace("#", "");
           const IconComponent = link.icon;
-          
+
           return (
             <button
               key={link.label}
               onClick={(e) => handleNavClick(e, link.href)}
               className={`group relative flex items-center gap-2 px-4 h-full text-sm font-mono transition-colors whitespace-nowrap ${
-                isActive 
-                  ? "bg-vscode-tab-active text-foreground border-t border-t-primary" 
+                isActive
+                  ? "bg-vscode-tab-active text-foreground border-t border-t-primary"
                   : "text-muted-foreground hover:bg-vscode-tab-active/50"
               }`}
             >

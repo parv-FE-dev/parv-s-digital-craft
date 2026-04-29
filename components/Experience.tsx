@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar, MapPin, ChevronDown, Trophy, TrendingUp, Download, CheckCircle } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/Section";
 
 interface Experience {
   id: number;
@@ -32,18 +33,18 @@ const Experience = () => {
       role: 'Senior Frontend Engineer',
       period: 'Jul 2024 - Present',
       location: 'Remote',
-      description: 'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients.',
+      description: 'Founding FE on an enterprise AI cognitive assessment platform serving multiple clients. Lead the contract engineering team and own the product surface end-to-end.',
       achievements: [
-        'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients',
-        'Built interactive AI-driven cognitive assessment games with reusable game engine, scoring algorithms, and adaptive difficulty — directly contributing to new revenue streams',
-        'Designed role-based Admin Portal for test management, improving operational efficiency by 40%. Led contract engineering team',
-        'Achieved zero critical/high-risk vulnerabilities in penetration testing. Implemented modular component architecture with shared design system'
+        'Built interactive AI-driven cognitive assessment games with a reusable game engine, scoring algorithms, and adaptive difficulty, contributing to new revenue streams',
+        'Designed a role-based Admin Portal for test management, improving operational efficiency by 40%',
+        'Achieved zero critical/high-risk vulnerabilities in penetration testing',
+        'Implemented modular component architecture with a shared design system'
       ],
       technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Redux'],
       impact: [
         { metric: 'Operational Efficiency', value: '+40%' },
-        { metric: 'Security Vulnerabilities', value: '0' },
-        { metric: 'Revenue Streams', value: 'New' }
+        { metric: 'Pen-Test Vulnerabilities', value: '0' },
+        { metric: 'Build Stage', value: '0 → 1' }
       ]
     },
     {
@@ -52,17 +53,17 @@ const Experience = () => {
       role: 'SDE II, Frontend',
       period: 'Jul 2023 - Jul 2024',
       location: 'Bengaluru',
-      description: 'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s.',
+      description: 'Core contributor to the Lifesight 3.0 frontend rewrite. Owned the new analytics modules and the chart engine that powers them.',
       achievements: [
-        'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s (10× improvement)',
+        'Replaced fragmented charting with a unified visualization layer, cutting dashboard load time from 14s to <1s (10× improvement)',
         'Shipped Attribution and Customer Journey Analytics modules using React + TypeScript',
-        'Led UI sprints improving Core Web Vitals'
+        'Led UI sprints that improved Core Web Vitals across the dashboard'
       ],
       technologies: ['React', 'TypeScript', 'Redux', 'Data Visualization', 'REST APIs'],
       impact: [
-        { metric: 'Load Time', value: '14s → <1s' },
-        { metric: 'Improvement', value: '10×' },
-        { metric: 'Core Web Vitals', value: 'Improved' }
+        { metric: 'Dashboard Load Time', value: '14s → <1s' },
+        { metric: 'Speed-Up', value: '10×' },
+        { metric: 'Chart Engine', value: 'Unified' }
       ]
     },
     {
@@ -71,18 +72,17 @@ const Experience = () => {
       role: 'Front-End Developer',
       period: 'Jul 2021 - Jun 2023',
       location: 'Remote',
-      description: 'Built scalable React applications serving thousands of users across fitness and wellness platforms.',
+      description: 'Frontend developer across fitness and wellness products serving thousands of users.',
       achievements: [
-        'Built scalable React applications serving thousands of users across fitness and wellness platforms',
-        'Developed AI-powered content generation tool using OpenAI GPT-3 & Stable Diffusion — full frontend for prompt input, real-time preview; shipped and adopted by content team',
-        'Built subscription bundling system (Moxie Pass) improving conversion & retention',
-        'Boosted SEO and organic traffic'
+        'Developed an AI-powered content generation tool with OpenAI GPT-3 + Stable Diffusion: full frontend for prompt input and real-time preview; shipped and adopted by the content team',
+        'Built the Moxie Pass subscription bundling system, improving conversion and retention',
+        'Boosted SEO and organic traffic across the wellness portfolio'
       ],
       technologies: ['React', 'JavaScript', 'TypeScript', 'OpenAI API', 'SCSS', 'Redux'],
       impact: [
-        { metric: 'Users Served', value: '1000s' },
-        { metric: 'AI Tool', value: 'GPT-3 + SD' },
-        { metric: 'SEO', value: 'Improved' }
+        { metric: 'Users Served', value: '1000s+' },
+        { metric: 'AI Tool Built', value: 'GPT-3 + SD' },
+        { metric: 'Subscription System', value: 'Moxie Pass' }
       ]
     }
   ];
@@ -92,13 +92,13 @@ const Experience = () => {
   };
 
   return (
-    <section 
-      id="experience" 
-      className="py-24 md:py-32 bg-secondary/20 relative"
+    <Section
+      id="experience"
+      width="narrow"
+      className="bg-secondary/20"
       ref={ref as React.RefObject<HTMLElement>}
     >
-      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-4xl mx-auto">
+      <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {/* Section header */}
           <div className="mb-16 text-center">
             <span className="text-primary font-mono text-sm tracking-wider mb-4 block">
@@ -238,14 +238,19 @@ const Experience = () => {
 
           {/* Download resume button */}
           <div className="text-center mt-12">
-            <Button variant="outline" className="gap-2">
-              <Download className="w-4 h-4" />
-              Download Full Resume
+            <Button variant="outline" className="gap-2" asChild>
+              <a
+                href="/Parv_Saxena_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="w-4 h-4" />
+                Download Full Resume
+              </a>
             </Button>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };
 

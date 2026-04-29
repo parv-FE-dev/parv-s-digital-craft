@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { FileCode, FileText, Briefcase, Wrench, Mail, User, Search } from "lucide-react";
+import { FileText, Briefcase, Wrench, Mail, User, Search } from "lucide-react";
 
 const CommandPalette = () => {
   const [open, setOpen] = useState(false);
@@ -11,7 +11,6 @@ const CommandPalette = () => {
     { label: "Home", href: "#home", icon: User, file: "home.tsx", description: "Go to landing section" },
     { label: "About", href: "#about", icon: FileText, file: "about.tsx", description: "Learn about me" },
     { label: "Experience", href: "#experience", icon: Briefcase, file: "experience.tsx", description: "View work history" },
-    // { label: "Projects", href: "#projects", icon: FileCode, file: "projects.tsx", description: "Browse my projects" },
     { label: "Skills", href: "#skills", icon: Wrench, file: "skills.tsx", description: "Technical skills" },
     { label: "Contact", href: "#contact", icon: Mail, file: "contact.tsx", description: "Get in touch" },
   ];

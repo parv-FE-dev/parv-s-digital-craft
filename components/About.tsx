@@ -1,107 +1,60 @@
 "use client";
 
-import { Code2, Sparkles, Zap } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Section } from "@/components/Section";
 
 const About = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
-  const highlights = [
-    {
-      icon: Code2,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable code that teams love to work with."
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description: "Optimizing for speed with sub-second load times and smooth interactions."
-    },
-    {
-      icon: Sparkles,
-      title: "User-Centric",
-      description: "Crafting interfaces that delight users and drive engagement."
-    }
-  ];
-
   return (
-    <section 
-      id="about" 
-      className="py-24 md:py-32 relative"
-      ref={ref as React.RefObject<HTMLElement>}
-    >
-      <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-6xl mx-auto">
-          {/* Section header */}
-          <div className="mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
-              About Me
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Passionate about building
-              <br />
-              <span className="text-gradient">exceptional web experiences</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left column - Bio */}
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm Parv Saxena, a Senior Frontend Engineer with 5+ years building
-                scalable web applications and AI-integrated products using React, Next.js,
-                and TypeScript. Currently the founding frontend engineer at
-                <span className="text-foreground font-medium"> Neurowyzr</span>, I combine deep frontend
-                expertise with hands-on AI/LLM integration to ship intelligent, user-facing products.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I've built RAG pipelines, real-time LLM streaming interfaces, and AI-powered
-                analysis tools from scratch. At Lifesight I reduced dashboard load times
-                from 14s to under 1s (10× improvement), and at True Sparrow I built an AI-powered
-                content generation tool using GPT-3 and Stable Diffusion.
-              </p>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-                <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">5+</div>
-                  <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">10x</div>
-                  <div className="text-sm text-muted-foreground mt-1">Performance Gains</div>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-display font-bold text-gradient">50+</div>
-                  <div className="text-sm text-muted-foreground mt-1">Features Shipped</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right column - Highlights */}
-            <div className="space-y-6">
-              {highlights.map((item, index) => (
-                <div 
-                  key={item.title}
-                  className={`group p-6 rounded-xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover-glow ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
-                  style={{ transitionDelay: `${(index + 1) * 150}ms` }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <Section id="about" width="narrow" ref={ref as React.RefObject<HTMLElement>}>
+      <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        {/* Section header */}
+        <div className="mb-12">
+          <span className="text-primary font-medium text-sm tracking-wider uppercase mb-4 block">
+            About Me
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Passionate about building
+            <br />
+            <span className="text-gradient">exceptional web experiences</span>
+          </h2>
         </div>
+
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          I'm Parv Saxena, a Senior Frontend Engineer with 5+ years building
+          AI-powered products in React, Next.js, and TypeScript. I combine deep
+          frontend craft with hands-on AI/LLM integration to deliver intelligent,
+          user-facing products.
+        </p>
+
+        <ul className="space-y-3 pt-6">
+          <li className="flex items-start gap-3">
+            <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+            <p className="text-base text-muted-foreground leading-relaxed">
+              <span className="text-foreground font-medium">Neurowyzr:</span> Founding
+              FE on a 0 → 1 enterprise AI assessment platform; owning the product
+              surface end-to-end.
+            </p>
+          </li>
+          <li className="flex items-start gap-3">
+            <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+            <p className="text-base text-muted-foreground leading-relaxed">
+              <span className="text-foreground font-medium">Lifesight:</span> Cut
+              dashboard load time from 14s to &lt;1s (10× faster) on the analytics rewrite.
+            </p>
+          </li>
+          <li className="flex items-start gap-3">
+            <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+            <p className="text-base text-muted-foreground leading-relaxed">
+              <span className="text-foreground font-medium">True Sparrow:</span> Shipped
+              an early production AI content tool combining GPT-3 and Stable Diffusion.
+            </p>
+          </li>
+        </ul>
       </div>
-    </section>
+    </Section>
   );
 };
 

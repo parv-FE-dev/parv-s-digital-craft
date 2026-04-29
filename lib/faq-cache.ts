@@ -38,7 +38,7 @@ const FAQ_ENTRIES: FAQEntry[] = [
   },
   {
     keywords: ["react", "typescript", "frontend framework"],
-    answer: `React and TypeScript are my core expertise. I have ${ctx.yearsExperience} years building production apps with React, and TypeScript is part of my daily workflow at ${ctx.currentCompany}. I'm also proficient with Next.js, Redux, Zustand, and Tailwind CSS.`,
+    answer: `React and TypeScript are my core expertise. I have ${ctx.yearsExperience} years building production apps with React, and TypeScript is part of my daily workflow at ${ctx.currentCompany}. I'm also proficient with Next.js, Redux, and Tailwind CSS.`,
   },
   {
     keywords: ["ai", "machine learning", "ml", "artificial intelligence", "openai", "claude", "llm"],
