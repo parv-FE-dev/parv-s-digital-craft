@@ -114,8 +114,8 @@ const Experience = () => {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline line with gradient */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-muted" />
+            {/* Timeline line with gradient — hidden on mobile, shown from md+ */}
+            <div className="hidden md:block absolute md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-muted" />
 
             {experiences.map((exp, index) => (
               <div 
@@ -123,16 +123,16 @@ const Experience = () => {
                 className={`relative mb-8 last:mb-0 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${(index + 1) * 200}ms` }}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-6 md:left-8 top-6 -translate-x-1/2 z-10">
+                {/* Timeline dot — hidden on mobile, shown from md+ */}
+                <div className="hidden md:block absolute md:left-8 top-6 -translate-x-1/2 z-10">
                   {expandedId === exp.id && (
                     <div className="absolute inset-0 w-4 h-4 rounded-full bg-primary/50 animate-ping" />
                   )}
                   <div className={`relative w-4 h-4 rounded-full bg-primary border-4 border-background ${expandedId === exp.id ? 'ring-2 ring-primary/30 ring-offset-2 ring-offset-background' : ''}`} />
                 </div>
 
-                {/* Content card */}
-                <div className="ml-12 md:ml-16">
+                {/* Content card — full-width on mobile, offset for timeline from md+ */}
+                <div className="md:ml-16">
                   <div 
                     className={`p-6 rounded-xl bg-gradient-card border transition-all duration-300 cursor-pointer ${
                       expandedId === exp.id 
@@ -218,10 +218,10 @@ const Experience = () => {
                               <TrendingUp className="w-4 h-4 text-primary" />
                               <span className="font-medium text-foreground">Measurable Impact</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                               {exp.impact.map((item, impIndex) => (
                                 <div key={impIndex} className="text-center p-3 rounded-lg bg-secondary/50 border border-border">
-                                  <p className="text-xl font-bold text-primary">{item.value}</p>
+                                  <p className="text-lg sm:text-xl font-bold text-primary break-words">{item.value}</p>
                                   <p className="text-xs text-muted-foreground">{item.metric}</p>
                                 </div>
                               ))}

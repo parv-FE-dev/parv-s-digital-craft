@@ -58,6 +58,63 @@ export default function ChatWidget() {
     if (isOpen) inputRef.current?.focus();
   }, [isOpen]);
 
+  // Mobile-only: pin chat height to the visible viewport when the virtual
+  // keyboard opens. VisualViewport API reports the area NOT covered by the
+  // keyboard. On desktop this hook never runs.
+  useEffect(() => {
+    if (!isOpen || typeof window === "undefined" || !window.visualViewport) return;
+    const mq = window.matchMedia("(max-width: 640px)");
+    if (!mq.matches) return;
+
+    const update = () => {
+      const h = window.visualViewport!.height;
+      document.documentElement.style.setProperty("--chat-vh", `${h}px`);
+    };
+    update();
+    window.visualViewport.addEventListener("resize", update);
+    return () => {
+      window.visualViewport?.removeEventListener("resize", update);
+      document.documentElement.style.removeProperty("--chat-vh");
+    };
+  }, [isOpen]);
+
+  // Mobile-only: lock body scroll while the chat is open. iOS Safari tries
+  // to scroll the focused input into view, which drags the page (and the
+  // fixed chat panel with it). Pinning the body prevents that.
+  useEffect(() => {
+    if (!isOpen || typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 640px)");
+    if (!mq.matches) return;
+
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const original = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+
+    return () => {
+      body.style.position = original.position;
+      body.style.top = original.top;
+      body.style.left = original.left;
+      body.style.right = original.right;
+      body.style.width = original.width;
+      body.style.overflow = original.overflow;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
+
   const sendMessage = useCallback(
     async (text: string) => {
       if (!text.trim() || isLoading) return;
@@ -145,11 +202,11 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-50 flex w-[350px] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl max-sm:bottom-0 max-sm:right-0 max-sm:left-0 max-sm:top-0 max-sm:w-full max-sm:rounded-none max-sm:border-0"
+            className="fixed bottom-24 right-6 z-50 flex w-[350px] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl max-sm:bottom-0 max-sm:right-0 max-sm:left-0 max-sm:top-0 max-sm:w-full max-sm:rounded-none max-sm:border-0 max-sm:!h-[var(--chat-vh,100dvh)]"
             style={{ height: "min(480px, calc(100vh - 120px))" }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between bg-vscode-sidebar px-4 py-3 border-b border-border">
+            <div className="flex items-center justify-between bg-vscode-sidebar px-4 py-3 max-sm:pt-[max(0.75rem,env(safe-area-inset-top))] border-b border-border">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary" />
                 <span className="font-display text-sm font-semibold text-foreground">
@@ -204,7 +261,7 @@ export default function ChatWidget() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-border p-3">
+            <div className="border-t border-border p-3 max-sm:pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
                 <input
                   ref={inputRef}
@@ -213,7 +270,7 @@ export default function ChatWidget() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="// ask parv"
-                  className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
+                  className="flex-1 bg-transparent text-base sm:text-sm text-foreground placeholder:text-muted-foreground outline-none"
                   disabled={isLoading}
                 />
                 <button
