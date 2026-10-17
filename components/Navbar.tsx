@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, FileCode, FileText, Briefcase, Wrench, Mail, User } from "lucide-react";
+import { X, FileText, Briefcase, Wrench, Mail, User } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,8 +11,7 @@ const Navbar = () => {
     { label: "home.tsx", href: "#home", icon: User },
     { label: "about.tsx", href: "#about", icon: FileText },
     { label: "experience.tsx", href: "#experience", icon: Briefcase },
-    { label: "projects.tsx", href: "#projects", icon: FileCode },
-    { label: "skills.tsx", href: "#skills", icon: Wrench },
+{ label: "skills.tsx", href: "#skills", icon: Wrench },
     { label: "contact.tsx", href: "#contact", icon: Mail },
   ];
 
@@ -21,7 +20,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Determine active section
-      const sections = ["home", "about", "experience", "projects", "skills", "contact"];
+      const sections = ["home", "about", "experience", "skills", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       // Check if near top for home

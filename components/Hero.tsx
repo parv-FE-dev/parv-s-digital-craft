@@ -2,14 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ChevronDown,
-  Calendar,
-  Layers,
-  Star,
-  Zap,
-} from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -56,12 +49,6 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentLineIndex, isHydrated]);
 
-  const skills = [
-    { name: "React", level: 95 },
-    { name: "TypeScript", level: 92 },
-    { name: "Next.js", level: 88 },
-    { name: "AI Integration", level: 85 },
-  ];
 
   return (
     <section className="relative min-h-[calc(100vh-60px)] flex items-center justify-center overflow-hidden bg-vscode-editor">
@@ -78,10 +65,10 @@ const Hero = () => {
       {/* Line numbers gutter effect */}
       <div className="absolute left-0 top-0 bottom-0 w-12 bg-vscode-sidebar border-r border-border opacity-30" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="space-y-6 pl-8">
+          <div className="space-y-6 lg:pl-8">
             {/* Status badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-secondary rounded border border-border font-mono text-xs">
               <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
@@ -106,11 +93,8 @@ const Hero = () => {
                 <span className="vscode-comment">// </span>Senior Frontend Engineer | Building AI-Powered Products
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl font-body">
-                Senior Frontend Engineer with 5+ years building scalable web applications
-                and AI-integrated products using React, Next.js, and TypeScript. Built RAG pipelines,
-                real-time LLM streaming interfaces, and AI-powered analysis tools from scratch.
-                Combines deep frontend expertise with hands-on AI/LLM integration to ship
-                intelligent, user-facing products.
+                I ship AI-powered web products. React, TypeScript, and LLMs from prototype
+                to production.
               </p>
             </div>
 
@@ -123,6 +107,15 @@ const Hero = () => {
                 <a href="#experience" className="flex items-center space-x-2">
                   <span>viewMyWork()</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                asChild
+                className="px-6 py-5 font-mono text-sm border-border hover:bg-secondary"
+              >
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  downloadResume()
                 </a>
               </Button>
               <Button
@@ -162,7 +155,6 @@ const Hero = () => {
                   <div>6</div>
                   <div>7</div>
                   <div>8</div>
-                  <div>9</div>
                 </div>
 
                 {/* Code content */}
@@ -189,27 +181,25 @@ const Hero = () => {
                       <span className="text-foreground">{codeLines[0]}</span>
                     )}
                   </div>
-                  <div className="vscode-comment">// Core Competencies</div>
-
-                  {/* Skills as code */}
-                  {skills.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <span className="vscode-variable">
-                        {skill.name.toLowerCase()}
-                      </span>
-                      <span className="text-foreground">:</span>
-                      <div className="flex-1 max-w-[150px] h-2 bg-muted rounded-sm overflow-hidden">
-                        <div
-                          className="h-full bg-primary transition-all duration-1000 ease-out"
-                          style={{
-                            width: isHydrated ? `${skill.level}%` : "0%",
-                          }}
-                        />
-                      </div>
-                      <span className="vscode-number">{skill.level}</span>
-                      <span className="text-foreground">%</span>
-                    </div>
-                  ))}
+                  <div>&nbsp;</div>
+                  <div>
+                    <span className="vscode-keyword">const</span>{" "}
+                    <span className="vscode-variable">impact</span>{" "}
+                    <span className="text-foreground">= {"{"}</span>
+                  </div>
+                  <div className="pl-4 flex">
+                    <span className="vscode-variable inline-block w-[5.5rem]">shipped:</span>
+                    <span className="vscode-string">"10+ products"</span>
+                    <span className="text-foreground">,</span>
+                  </div>
+                  <div className="pl-4 flex">
+                    <span className="vscode-variable inline-block w-[5.5rem]">specialty:</span>
+                    <span className="vscode-string">"AI Integration"</span>
+                    <span className="text-foreground">,</span>
+                  </div>
+                  <div>
+                    <span className="text-foreground">{"}"}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,7 +207,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <a
             href="#about"
             className="inline-flex flex-col items-center space-y-2 text-muted-foreground hover:text-primary transition-colors duration-300 group font-mono text-sm"

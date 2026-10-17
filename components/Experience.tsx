@@ -34,8 +34,7 @@ const Experience = () => {
       location: 'Remote',
       description: 'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients.',
       achievements: [
-        'Founding frontend engineer; built product from concept to production enterprise platform serving multiple clients',
-        'Built interactive AI-driven cognitive assessment games with reusable game engine, scoring algorithms, and adaptive difficulty — directly contributing to new revenue streams',
+        'Built interactive AI-driven cognitive assessment games with reusable game engine, scoring algorithms, and adaptive difficulty, directly contributing to new revenue streams',
         'Designed role-based Admin Portal for test management, improving operational efficiency by 40%. Led contract engineering team',
         'Achieved zero critical/high-risk vulnerabilities in penetration testing. Implemented modular component architecture with shared design system'
       ],
@@ -54,7 +53,7 @@ const Experience = () => {
       location: 'Bengaluru',
       description: 'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s.',
       achievements: [
-        'Core contributor to Lifesight 3.0; replaced fragmented charting with unified visualization, reducing load time from 14s to <1s (10× improvement)',
+        'Reduced dashboard load time from 14s to under 1s (10x improvement) by replacing fragmented charting with unified visualization',
         'Shipped Attribution and Customer Journey Analytics modules using React + TypeScript',
         'Led UI sprints improving Core Web Vitals'
       ],
@@ -73,8 +72,7 @@ const Experience = () => {
       location: 'Remote',
       description: 'Built scalable React applications serving thousands of users across fitness and wellness platforms.',
       achievements: [
-        'Built scalable React applications serving thousands of users across fitness and wellness platforms',
-        'Developed AI-powered content generation tool using OpenAI GPT-3 & Stable Diffusion — full frontend for prompt input, real-time preview; shipped and adopted by content team',
+        'Developed AI-powered content generation tool using OpenAI GPT-3 & Stable Diffusion, with full frontend for prompt input, real-time preview; shipped and adopted by content team',
         'Built subscription bundling system (Moxie Pass) improving conversion & retention',
         'Boosted SEO and organic traffic'
       ],
@@ -98,17 +96,17 @@ const Experience = () => {
       ref={ref as React.RefObject<HTMLElement>}
     >
       <div className={`container px-6 md:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-16 text-center">
-            <span className="text-primary font-mono text-sm tracking-wider mb-4 block">
+          <div className="mb-16">
+            <span className="text-primary font-mono text-sm mb-4 block">
               // Professional Journey
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Experience <span className="text-gradient">Timeline</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A chronological journey through roles with measurable impact and continuous growth
+            <p className="text-muted-foreground max-w-2xl">
+              A chronological journey through roles with measurable impact and continuous growth.
             </p>
           </div>
 
@@ -133,10 +131,10 @@ const Experience = () => {
 
                 {/* Content card */}
                 <div className="ml-12 md:ml-16">
-                  <div 
-                    className={`p-6 rounded-xl bg-gradient-card border transition-all duration-300 cursor-pointer ${
-                      expandedId === exp.id 
-                        ? 'border-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.3),0_0_30px_rgba(var(--primary-rgb),0.1)]' 
+                  <div
+                    className={`p-6 rounded bg-gradient-card border transition-all duration-300 cursor-pointer ${
+                      expandedId === exp.id
+                        ? 'border-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.3),0_0_30px_rgba(var(--primary-rgb),0.1)]'
                         : 'border-border hover:border-primary/30'
                     }`}
                     onClick={() => toggleExpand(exp.id)}
@@ -145,7 +143,7 @@ const Experience = () => {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                          <div className="p-2 rounded bg-primary/10 text-primary shrink-0">
                             <Building2 className="w-5 h-5" />
                           </div>
                           <div>
@@ -220,7 +218,7 @@ const Experience = () => {
                             </div>
                             <div className="grid grid-cols-3 gap-4">
                               {exp.impact.map((item, impIndex) => (
-                                <div key={impIndex} className="text-center p-3 rounded-lg bg-secondary/50 border border-border">
+                                <div key={impIndex} className="text-center p-3 rounded bg-secondary/50 border border-border">
                                   <p className="text-xl font-bold text-primary">{item.value}</p>
                                   <p className="text-xs text-muted-foreground">{item.metric}</p>
                                 </div>
@@ -238,9 +236,11 @@ const Experience = () => {
 
           {/* Download resume button */}
           <div className="text-center mt-12">
-            <Button variant="outline" className="gap-2">
-              <Download className="w-4 h-4" />
-              Download Full Resume
+            <Button variant="outline" className="gap-2 font-mono" asChild>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Download className="w-4 h-4" />
+                downloadResume()
+              </a>
             </Button>
           </div>
         </div>

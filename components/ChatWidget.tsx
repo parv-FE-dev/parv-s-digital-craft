@@ -114,7 +114,7 @@ export default function ChatWidget() {
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-card border border-border shadow-2xl pl-1 pr-4 py-1 hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300 group"
+          className="fixed bottom-10 right-4 z-50 flex items-center gap-2 rounded-full bg-card border border-border shadow-2xl pl-1 pr-4 py-1 hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300 group"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
@@ -145,7 +145,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 z-50 flex w-[350px] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl max-sm:bottom-0 max-sm:right-0 max-sm:left-0 max-sm:top-0 max-sm:w-full max-sm:rounded-none max-sm:border-0"
+            className="fixed bottom-28 right-6 z-50 flex w-[350px] flex-col overflow-hidden rounded border border-border bg-card shadow-2xl max-sm:bottom-0 max-sm:right-0 max-sm:left-0 max-sm:top-0 max-sm:w-full max-sm:rounded-none max-sm:border-0"
             style={{ height: "min(480px, calc(100vh - 120px))" }}
           >
             {/* Header */}

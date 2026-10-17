@@ -10,8 +10,8 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "ResumeAI — AI Resume Optimizer",
-      description: "Full-stack AI tool that analyzes resumes against job descriptions — delivers match scoring, keyword gap detection, and AI-rewritten bullet points end-to-end in under 10 seconds. Real-time LLM streaming, PDF parsing pipeline, 4-layer caching & rate limiting.",
+      title: "ResumeAI: AI Resume Optimizer",
+      description: "Full-stack AI tool that analyzes resumes against job descriptions, delivering match scoring, keyword gap detection, and AI-rewritten bullet points in under 10 seconds. Real-time LLM streaming, PDF parsing pipeline, 4-layer caching & rate limiting.",
       image: "/placeholder.svg",
       tech: ["Next.js 16", "TypeScript", "Claude AI", "Vercel AI SDK", "Zustand", "Tailwind CSS 4", "Framer Motion"],
       liveUrl: "https://resume-ai-seven-omega.vercel.app/",
@@ -20,7 +20,7 @@ const Projects = () => {
       status: "live" as const,
     },
     {
-      title: "ChatPDF — RAG Document Intelligence",
+      title: "ChatPDF: RAG Document Intelligence",
       description: "RAG-powered PDF Q&A with clickable page-level citations. Built full retrieval pipeline from scratch: PDF → chunking → TF-IDF cosine similarity → context assembly → Claude streaming with [Page X] citations. Auto-summarization on upload.",
       image: "/placeholder.svg",
       tech: ["Next.js 15", "TypeScript", "Claude AI", "Custom TF-IDF Engine", "RAG Pipeline", "Zustand", "Tailwind CSS 4"],
